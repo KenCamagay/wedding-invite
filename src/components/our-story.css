@@ -1,0 +1,81 @@
+.love-story { position: relative; background: #f4eee3; color: #514a40; overflow-x: clip; }
+.love-story::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .24; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.2' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.story-overture { height: 180svh; position: relative; background: linear-gradient(#d9cbb7, #f4eee3 25%); }
+.overture-sticky { position: sticky; top: 0; min-height: 100svh; padding: 12svh 24px 9svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.story-star { display: block; margin: 35px 0; font-size: 40px; color: #a48b65; }
+.overture-words { font: 400 clamp(42px, 5.5vw, 85px)/1.13 Georgia, serif; letter-spacing: -3px; max-width: 1000px; }
+.overture-words em { color: #858871; }
+.story-handwriting { font: italic 23px/1.6 "Segoe Print", "Bradley Hand", cursive; color: #9b786c; }
+.overture-sticky > .story-handwriting { margin-top: 26px; transform: rotate(-4deg); }
+.chapter-links { display: flex; gap: 40px; margin-top: 55px; }
+.chapter-links a { font: italic 18px Georgia, serif; display: flex; gap: 9px; align-items: center; padding: 12px 0; border-bottom: 1px solid #bda986; }
+.chapter-links span { font: 8px Arial, sans-serif; letter-spacing: 1.5px; }
+.story-chapters { position: relative; max-width: 1400px; margin: auto; }
+.story-thread { position: absolute; top: 0; left: 45%; width: 10%; height: 100%; pointer-events: none; }
+.story-thread path { stroke: #bc9b77; stroke-width: 1; fill: none; stroke-dasharray: 1; vector-effect: non-scaling-stroke; }
+.story-chapter { position: relative; min-height: 105svh; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(50px, 9vw, 140px); align-items: center; padding: 100px 7%; scroll-margin-top: 45px; }
+.memory-photo { position: relative; margin: 0; padding: 14px 14px 0; background: #fffcf5; box-shadow: 0 25px 65px #5f463820, 0 3px 10px #5f463815; transform: rotate(-3deg); }
+.photo-window { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #d5d1bc; }
+.memory-image { object-fit: cover; }
+.photo-tape { position: absolute; top: -13px; left: 36%; width: 28%; height: 34px; background: #cdb99480; z-index: 2; transform: rotate(-5deg); backdrop-filter: blur(2px); }
+.memory-photo figcaption { min-height: 66px; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 15px 8px; font: italic 19px "Segoe Print", "Bradley Hand", cursive; color: #8b6c5d; }
+.memory-photo figcaption span { font: 10px Arial, sans-serif; color: #b8a99b; }
+.photo-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at 30% 20%, #e8e4d5, #b9c0a9); }
+.botanical-sketch { width: 60%; height: 62%; position: absolute; top: 4%; left: 17%; stroke: #f8f3df; stroke-width: 1; opacity: .7; }
+.photo-monogram { z-index: 1; margin-top: 22%; font: 44px Georgia, serif; color: #67765d; }
+.photo-monogram i { font-size: 30px; }
+.photo-pending { z-index: 1; margin-top: 24px; color: #59654d; font-size: 8px; letter-spacing: 2px; text-align: center; }
+.chapter-2 .memory-photo { order: 2; transform: rotate(3deg); }
+.chapter-2 .photo-placeholder { background: radial-gradient(ellipse at 30% 20%, #f0e4da, #cbaea5); }
+.chapter-2 .photo-monogram, .chapter-2 .photo-pending { color: #855f60; }
+.chapter-3 .photo-placeholder { background: radial-gradient(ellipse at 30% 20%, #e5e9e5, #aabac0); }
+.chapter-3 .photo-monogram, .chapter-3 .photo-pending { color: #5e747b; }
+.memory-copy { position: relative; z-index: 1; }
+.memory-copy h3 { margin: 24px 0; font: 400 clamp(37px, 4.2vw, 64px)/1.12 Georgia, serif; letter-spacing: -2px; }
+.memory-copy h3 em { color: #8a8c74; }
+.memory-rule { display: block; width: 48px; height: 1px; margin: 27px 0; background: #b49474; }
+.memory-body { max-width: 340px; font: 16px/1.95 Georgia, serif; color: #83796c; }
+.draft-label { display: block; margin-top: 23px; font-size: 7px; letter-spacing: 1.5px; color: #9c8f7e; }
+.letter-section { position: relative; padding: 110px 24px 100px; text-align: center; background: linear-gradient(#f4eee3, #e6e8dc); }
+.letter-section > h2 { margin: 28px 0 65px; font: 400 clamp(40px, 5vw, 70px)/1.1 Georgia, serif; letter-spacing: -2px; }
+.letter-section > h2 em { color: #7d866e; }
+.wedding-letter { position: relative; max-width: 520px; margin: auto; padding: 65px 26px 30px; background: #e7dcc7; border: 1px solid #d5c4a5; box-shadow: 0 20px 65px #5f46381a; }
+.envelope-flap { position: absolute; inset: 0 0 auto; height: 130px; clip-path: polygon(0 0, 100% 0, 50% 100%); background: #f2e6cf; transform-origin: top; transition: transform .65s ease; }
+.wax-seal { position: relative; z-index: 2; display: block; width: 70px; height: 70px; margin: 0 auto 25px; border: 5px double #9b756a; border-radius: 50%; background: #a77970; box-shadow: inset 0 1px 6px #e5b9a6, 0 4px 10px #5f46382c; color: #f8dfbf; font: 23px Georgia, serif; transition: transform .3s; }
+.wax-seal span { font-size: 16px; font-style: italic; }
+.wax-seal:hover { transform: rotate(-8deg); }
+.envelope-instruction { position: relative; font: italic 17px Georgia, serif; color: #8c7560; }
+.letter-paper { position: relative; margin-top: 28px; padding: 35px 22px; background: #fffbf2; box-shadow: 0 3px 15px #5f463812; }
+.letter-paper[hidden] { display: none; }
+.letter-open .envelope-flap { transform: scaleY(-1); }
+.letter-open .letter-paper { animation: unfold-note .65s ease both; }
+.letter-paper > p:not(.story-handwriting):not(.letter-signature) { margin-top: 20px; font: 17px/1.8 Georgia, serif; color: #7a6c5c; }
+.letter-signature { margin: 25px 0 18px; font: italic 28px Georgia, serif; color: #8b7160; }
+.story-calendar { display: inline-flex; align-items: center; gap: 50px; margin-top: 50px; padding: 18px 22px; border: 1px solid #9da58e; background: transparent; color: #5a6650; font-size: 9px; letter-spacing: 2px; }
+.story-calendar:hover { background: #dce0d1; }
+.calendar-note { margin: 14px auto 0; font-size: 10px; color: #7c8471; line-height: 1.6; }
+.love-story a:focus-visible, .love-story button:focus-visible { outline: 2px solid #71624f; outline-offset: 6px; }
+@keyframes unfold-note { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) {
+  .story-overture { height: 150svh; }
+  .overture-words { font-size: clamp(35px, 8vw, 55px); letter-spacing: -1.5px; }
+  .chapter-links { gap: 22px; margin-top: 35px; }
+  .chapter-links a { font-size: 23px; padding: 12px; }
+  .chapter-links span { display: none; }
+  .story-chapter { min-height: auto; grid-template-columns: 1fr; gap: 60px; padding: 85px 9% 65px; }
+  .memory-photo { width: min(100%, 390px); margin: auto; }
+  .chapter-2 .memory-photo { order: 0; }
+  .memory-copy { padding-left: 6%; }
+  .memory-copy h3 { font-size: 42px; }
+  .memory-body { font-size: 15px; }
+  .story-thread { left: 4%; width: 3%; }
+  .memory-photo figcaption { font-size: 16px; min-height: 58px; }
+  .story-handwriting { font-size: 20px; }
+  .letter-section { padding-top: 70px; }
+  .letter-section > h2 { margin-bottom: 65px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-overture { height: auto; }
+  .overture-sticky { position: relative; min-height: 80svh; }
+  .love-story *, .love-story *::before { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,6701 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #e9dcc5;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff2da;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #f5cf8d;
+  outline-offset: 6px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.church-journey {
+  height: 2400svh;
+}
+
+.journey-viewport {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #d9c8ab;
+}
+
+/* Header */
+.journey-header {
+  position: absolute;
+  z-index: 30;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 4.5%;
+  text-shadow: 0 2px 12px #46332380;
+}
+
+.journey-header > span,
+.header-action {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.journey-header button {
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.journey-monogram {
+  font: 32px Georgia, serif !important;
+  letter-spacing: -3px;
+}
+
+.journey-monogram span {
+  margin: 0 5px;
+  font-size: 23px;
+  font-style: italic;
+}
+
+/* Exterior */
+.arrival-scene,
+.journey-room,
+.exterior-picture,
+.arrival-shade,
+.room-art,
+.room-readability,
+.travel-light {
+  position: absolute;
+  inset: 0;
+}
+
+.exterior-position {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100vw, 150svh);
+  height: max(100svh, 66.6667vw);
+  transform: translate(-50%, -50%);
+}
+
+.exterior-board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 63%;
+  will-change: transform;
+}
+
+.exterior-picture {
+  background:
+    url("/images/church-exterior.png")
+    center / 100% 100% no-repeat;
+}
+
+.entrance {
+  position: absolute;
+  left: 42.05%;
+  top: 46.15%;
+  width: 15.85%;
+  height: 33.4%;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+}
+
+.door-leaf {
+  position: absolute;
+  top: 0;
+  width: 50.15%;
+  height: 100%;
+  background-image: url("/images/church-doors.png");
+  background-size: 200% 100%;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.left-door {
+  left: 0;
+  background-position: left center;
+  transform-origin: left center;
+}
+
+.right-door {
+  right: 0;
+  background-position: right center;
+  transform-origin: right center;
+}
+
+.entrance-light {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(#fff9de, #f3d39a);
+  box-shadow: 0 0 50px #ffe7b5;
+}
+
+.arrival-shade {
+  background: linear-gradient(
+    #31251b22,
+    transparent 35%,
+    #241c1570
+  );
+}
+
+.arrival-copy {
+  position: absolute;
+  left: 7%;
+  bottom: 17%;
+  text-shadow: 0 3px 25px #382517;
+}
+
+.eyebrow {
+  font-size: 9px;
+  line-height: 1.8;
+  letter-spacing: 3px;
+}
+
+.arrival-copy h1 {
+  margin: 20px 0;
+  font: 400 clamp(48px, 6.3vw, 96px) / 1.03 Georgia, serif;
+  letter-spacing: -3px;
+}
+
+.arrival-copy h1 em {
+  color: #f3d4aa;
+}
+
+.arrival-copy > p:last-child {
+  font: italic 17px Georgia, serif;
+}
+
+/* Rooms */
+.journey-room {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.room-art {
+  transform-origin: 50% 53%;
+  will-change: transform;
+}
+
+.living-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.room-readability {
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    #33251e70,
+    #33251e18 70%
+  );
+}
+
+.room-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px;
+  text-align: center;
+  text-shadow: 0 2px 22px #35251880;
+}
+
+.room-copy h2 {
+  margin: 20px 0;
+  font: 400 clamp(42px, 5.5vw, 80px) / 1.09 Georgia, serif;
+  letter-spacing: -2.5px;
+}
+
+.room-copy h2 em {
+  color: #f3d7b2;
+}
+
+.journey-names {
+  margin: 22px 0;
+  font: 400 clamp(62px, 8vw, 115px) / 1 Georgia, serif;
+  letter-spacing: -4px;
+}
+
+.journey-names i {
+  font-size: 0.65em;
+  color: #e6c392;
+}
+
+.room-copy .journey-hashtag {
+  margin: 0;
+  font-size: clamp(25px, 4vw, 60px);
+  letter-spacing: -1.5px;
+  overflow-wrap: anywhere;
+}
+
+.gold-rule {
+  display: block;
+  width: 1px;
+  height: 42px;
+  margin: 27px 0;
+  background: #e7c791;
+}
+
+.room-date {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+}
+
+.room-poem {
+  margin-top: 24px;
+  font: italic 19px / 1.8 Georgia, serif;
+}
+
+/* Interactive story chapter */
+.memory-switcher {
+  display: flex;
+  gap: 18px;
+  margin: 15px 0 25px;
+}
+
+.memory-switcher button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #f0dfbb70;
+  border-radius: 50%;
+  background: #624a3820;
+  color: #fff1d8;
+  font: italic 17px Georgia, serif;
+  transition: background 180ms, color 180ms;
+}
+
+.memory-switcher button[aria-pressed="true"] {
+  background: #f2dfbc;
+  color: #6b5140;
+}
+
+.memory-note {
+  max-width: 360px;
+  min-height: 150px;
+  animation: memory-appear 500ms ease both;
+}
+
+.memory-note h3 {
+  margin-bottom: 14px;
+  font: italic 27px Georgia, serif;
+}
+
+.memory-note p {
+  font: 16px / 1.8 Georgia, serif;
+}
+
+.memory-note small {
+  display: block;
+  margin-top: 20px;
+  font-size: 7px;
+  letter-spacing: 1.6px;
+  color: #eddbc0;
+}
+
+/* Beach finale */
+.room-beach .room-readability {
+  background: radial-gradient(
+    ellipse at center,
+    #674b3b28,
+    transparent 70%
+  );
+}
+
+.room-beach .room-copy {
+  color: #fff6e5;
+  text-shadow: 0 2px 18px #5b655e80;
+}
+
+.room-beach .room-copy h2 {
+  font-size: clamp(62px, 8vw, 120px);
+}
+
+.room-beach .room-copy h2 em {
+  color: #fff0d6;
+}
+
+.beach-names {
+  margin: 12px 0 24px;
+  font: italic 30px Georgia, serif;
+}
+
+.save-date-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 42px;
+  margin-top: 32px;
+  padding: 17px 24px;
+  border: 1px solid #fff0d4;
+  background: #fff3dbdf;
+  color: #61766d;
+  font-size: 9px;
+  letter-spacing: 2px;
+  box-shadow: 0 5px 25px #59665815;
+}
+
+.save-date-button:hover {
+  background: #fff8ea;
+}
+
+.venue-note {
+  max-width: 290px;
+  margin-top: 18px;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* Doorway transitions */
+.travel-light {
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  background: #fff4da;
+}
+
+.passage-glow {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  top: 53%;
+  width: 100vmax;
+  height: 100vmax;
+  margin-left: -50vmax;
+  margin-top: -50vmax;
+  border-radius: 50% 50% 10% 10%;
+  background: radial-gradient(
+    ellipse,
+    #fff8e8 30%,
+    #fff0d6 60%,
+    #ffedcf00 72%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.12);
+}
+
+/* Persistent room navigation */
+.journey-controls {
+  position: absolute;
+  z-index: 30;
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-shadow: 0 2px 10px #4a362c80;
+}
+
+.current-chapter,
+.scroll-instruction {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.journey-controls nav {
+  display: flex;
+  gap: 6px;
+}
+
+.journey-controls nav button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+}
+
+.journey-controls nav button span {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #fff0d0;
+  border-radius: 50%;
+  transition: transform 180ms, background 180ms;
+}
+
+.journey-controls nav button[aria-current="step"] span {
+  background: #fff0d0;
+  transform: scale(1.45);
+}
+
+/* Idle animation: paused automatically for invisible rooms. */
+.journey-room {
+  --idle-state: paused;
+}
+
+.journey-room[aria-hidden="false"] {
+  --idle-state: running;
+}
+
+.journey-room svg * {
+  animation-play-state: var(--idle-state) !important;
+}
+
+.flower-sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flower-sway 6s ease-in-out infinite alternate;
+}
+
+.candle-flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: candle-flicker 1.6s ease-in-out infinite alternate;
+}
+
+.candle-halo {
+  animation: candle-glow 2.2s ease-in-out infinite alternate;
+}
+
+.chandelier-sway {
+  transform-origin: 0 -130px;
+  animation: chandelier-sway 9s ease-in-out infinite alternate;
+}
+
+.linen-sway {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: linen-sway 7s ease-in-out infinite alternate;
+}
+
+.linen-second {
+  animation-delay: -3s;
+}
+
+.sunlight-breathe {
+  animation: sunlight-breathe 8s ease-in-out infinite alternate;
+}
+
+.glass-glimmer {
+  animation: glass-glimmer 6s ease-in-out infinite alternate;
+}
+
+.dust-mote {
+  animation: dust-drift 9s linear infinite;
+}
+
+.palm-crown {
+  transform-origin: 0 0;
+  animation: palm-sway 6s ease-in-out infinite alternate;
+}
+
+.wave-one {
+  animation: wave-roll 7s ease-in-out infinite alternate;
+}
+
+.wave-two {
+  animation: wave-roll 9s ease-in-out -4s infinite alternate-reverse;
+}
+
+.wave-three {
+  animation: wave-roll 11s ease-in-out -2s infinite alternate;
+}
+
+.water-shimmer {
+  animation: sunlight-breathe 4s ease-in-out infinite alternate;
+}
+
+.cloud-drift {
+  animation: cloud-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes flower-sway {
+  from { transform: rotate(-1.5deg); }
+  to { transform: rotate(2deg); }
+}
+
+@keyframes candle-flicker {
+  0% { transform: scale(0.9, 1) rotate(-3deg); opacity: 0.85; }
+  50% { transform: scale(1, 1.12) rotate(2deg); opacity: 1; }
+  100% { transform: scale(0.85, 0.95) rotate(-1deg); opacity: 0.9; }
+}
+
+@keyframes candle-glow {
+  from { opacity: 0.1; }
+  to { opacity: 0.25; }
+}
+
+@keyframes chandelier-sway {
+  from { transform: rotate(-0.7deg); }
+  to { transform: rotate(0.7deg); }
+}
+
+@keyframes linen-sway {
+  from { transform: skewX(-1deg); }
+  to { transform: skewX(1.4deg); }
+}
+
+@keyframes sunlight-breathe {
+  from { opacity: 0.09; }
+  to { opacity: 0.22; }
+}
+
+@keyframes glass-glimmer {
+  from { opacity: 0.2; }
+  to { opacity: 0.65; }
+}
+
+@keyframes dust-drift {
+  0% { transform: translate(0, 20px); opacity: 0; }
+  25% { opacity: 0.5; }
+  75% { opacity: 0.35; }
+  100% { transform: translate(25px, -45px); opacity: 0; }
+}
+
+@keyframes palm-sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(4deg); }
+}
+
+@keyframes wave-roll {
+  from { transform: translate(-30px, -5px); opacity: 0.5; }
+  to { transform: translate(35px, 13px); opacity: 0.95; }
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-25px); }
+  to { transform: translateX(35px); }
+}
+
+@keyframes memory-appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile framing */
+@media (max-width: 700px) {
+  .church-journey {
+    height: 2000svh;
+  }
+
+  .journey-header {
+    padding: 22px 6%;
+  }
+
+  .journey-header > span {
+    display: none;
+  }
+
+  .header-action {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .arrival-copy {
+    left: 7%;
+    bottom: 18%;
+  }
+
+  .arrival-copy h1 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .arrival-copy > p:last-child {
+    max-width: 250px;
+    line-height: 1.6;
+  }
+
+  .room-copy {
+    padding: 90px 22px;
+  }
+
+  .room-copy h2 {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+
+  .room-copy .journey-hashtag {
+    font-size: clamp(24px, 6.8vw, 36px);
+    letter-spacing: -1px;
+  }
+
+  .journey-names {
+    font-size: 64px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .room-date {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .room-poem {
+    font-size: 17px;
+  }
+
+  .room-beach .room-copy h2 {
+    font-size: 70px;
+  }
+
+  .journey-controls {
+    left: 6%;
+    right: 6%;
+    bottom: 19px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px 20px;
+  }
+
+  .current-chapter {
+    width: 100%;
+    text-align: center;
+    font-size: 7px;
+  }
+
+  .scroll-instruction {
+    display: none;
+  }
+
+  .memory-note {
+    max-width: 290px;
+  }
+}
+
+/* Accessible alternative: ordinary sections, no camera animation. */
+.reduced-journey {
+  height: auto;
+}
+
+.reduced-journey .journey-viewport {
+  position: relative;
+  height: auto;
+  overflow: visible;
+}
+
+.reduced-journey .journey-header {
+  position: absolute;
+}
+
+.reduced-journey .arrival-scene,
+.reduced-journey .journey-room {
+  position: relative;
+  min-height: 100svh;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.reduced-journey .journey-controls,
+.reduced-journey .travel-light,
+.reduced-journey .passage-glow {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- More detailed illustrated rooms ---------- */
+
+.interior-detail-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.room-story .room-readability,
+.room-garden .room-readability {
+  background: radial-gradient(
+    ellipse at center,
+    rgb(61 43 31 / 42%),
+    rgb(61 43 31 / 8%) 75%
+  );
+}
+
+.room-copy .practical-room-title {
+  margin: 12px 0 22px;
+  font-size: clamp(32px, 4vw, 58px);
+}
+
+/* ---------- Seating preview ---------- */
+
+.seating-panel {
+  width: min(850px, 90vw);
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 30px;
+
+  padding: 28px;
+  border: 1px solid #e9d7b6;
+  border-radius: 4px;
+
+  background: rgb(250 244 232 / 95%);
+  box-shadow: 0 22px 70px rgb(58 39 25 / 18%);
+
+  color: #625742;
+  text-align: left;
+  text-shadow: none;
+
+  max-height: 65svh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.preview-badge {
+  display: inline-block;
+  padding: 6px 9px;
+  border: 1px solid #d0c2a8;
+  border-radius: 20px;
+  color: #8b7b61;
+  font-size: 7px;
+  letter-spacing: 1.8px;
+}
+
+.seating-form h3 {
+  margin: 20px 0 14px;
+  font: 400 clamp(26px, 3vw, 39px) / 1.15 Georgia, serif;
+}
+
+.seating-form h3 em {
+  color: #7c8b70;
+}
+
+.seating-form > p {
+  max-width: 290px;
+  color: #8c806e;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.seating-form form {
+  margin-top: 24px;
+}
+
+.seating-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #8c7d65;
+}
+
+.invitation-input-row {
+  display: flex;
+  border-bottom: 1px solid #b6a58b;
+}
+
+.invitation-input-row input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #625742;
+  font: 18px Georgia, serif;
+  letter-spacing: 2px;
+}
+
+.invitation-input-row input::placeholder {
+  color: #b3a58d;
+  letter-spacing: 0;
+  font-style: italic;
+}
+
+.invitation-input-row:focus-within {
+  border-bottom-color: #667b5d;
+  box-shadow: 0 1px #667b5d;
+}
+
+.invitation-input-row button {
+  flex: 0 0 44px;
+  border: 0;
+  background: transparent;
+  color: #718165;
+  font-size: 25px;
+}
+
+.lookup-message {
+  margin-top: 15px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #996f60;
+}
+
+.table-result {
+  margin-top: 20px;
+  padding: 15px 17px;
+  border-left: 2px solid #8b9a78;
+  background: #e8ecdf;
+  animation: memory-appear 350ms ease both;
+}
+
+.table-result > span {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  color: #7d8a6c;
+}
+
+.table-result strong {
+  display: block;
+  margin: 9px 0;
+  font: 29px Georgia, serif;
+  color: #607154;
+}
+
+.table-result p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #7e8972;
+}
+
+.seating-form .seating-disclaimer {
+  margin-top: 18px;
+  font-size: 9px;
+  color: #a0937f;
+}
+
+.seating-map {
+  margin: 0;
+  align-self: center;
+}
+
+.seating-map svg {
+  display: block;
+  width: 100%;
+  max-height: 365px;
+}
+
+.map-caption {
+  font: 8px Arial, sans-serif;
+  letter-spacing: 1.6px;
+  fill: #968268;
+}
+
+.seating-map figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font: italic 12px Georgia, serif;
+  color: #9a8c76;
+}
+
+.table-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: table-highlight 2.5s ease-in-out infinite;
+}
+
+@keyframes table-highlight {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+/* ---------- Celebration details ---------- */
+
+.celebration-panel {
+  width: min(580px, 88vw);
+  margin-top: 5px;
+  padding: 25px 30px;
+
+  background: rgb(250 244 232 / 94%);
+  border: 1px solid #e7d8bf;
+  box-shadow: 0 20px 60px rgb(58 39 25 / 15%);
+
+  color: #645744;
+  text-align: left;
+  text-shadow: none;
+
+  max-height: 52svh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.celebration-location {
+  margin-bottom: 20px;
+  color: #95856d;
+  font: italic 14px Georgia, serif;
+  text-align: center;
+}
+
+.celebration-panel details {
+  border-top: 1px solid #d9ccb5;
+}
+
+.celebration-panel summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 19px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.celebration-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.celebration-panel summary > span {
+  color: #b09a76;
+  font: italic 13px Georgia, serif;
+}
+
+.celebration-panel summary strong {
+  flex: 1;
+  font: 22px Georgia, serif;
+}
+
+.celebration-panel summary i {
+  color: #9b8e75;
+  font: 20px Georgia, serif;
+  transition: transform 200ms ease;
+}
+
+.celebration-panel details[open] summary i {
+  transform: rotate(45deg);
+}
+
+.celebration-panel details > p {
+  margin: -3px 0 20px 33px;
+  max-width: 430px;
+  color: #948672;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.celebration-panel summary:focus-visible {
+  outline: 2px solid #8a9676;
+  outline-offset: 3px;
+}
+
+/* ---------- Warm entrance dissolve ---------- */
+
+.entrance-dissolve {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  background: radial-gradient(
+    ellipse at 50% 53%,
+    #d8bd91,
+    #a58a66 75%
+  );
+}
+
+/* ---------- Foreground stone passage ---------- */
+
+.stone-passage {
+  position: absolute;
+  z-index: 20;
+  inset: -5% -10%;
+  pointer-events: none;
+  transform: translateX(110%);
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 118px,
+      rgb(112 86 57 / 14%) 119px 121px
+    ),
+    linear-gradient(
+      90deg,
+      #91795b,
+      #c4ae8b 15%,
+      #eee0c5 35%,
+      #d8c2a0 64%,
+      #b99e76 88%,
+      #80694e
+    );
+
+  box-shadow:
+    -40px 0 65px rgb(54 37 23 / 22%),
+    40px 0 65px rgb(54 37 23 / 22%);
+}
+
+.stone-column {
+  position: absolute;
+  inset: 0 25%;
+
+  border-left: 12px solid rgb(255 244 217 / 55%);
+  border-right: 12px solid rgb(132 104 67 / 30%);
+
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(255 247 225 / 18%) 0 14px,
+    rgb(134 108 73 / 12%) 16px 20px,
+    transparent 22px 55px
+  );
+}
+
+/* ---------- Foreground floral passage ---------- */
+
+.floral-passage {
+  position: absolute;
+  z-index: 20;
+  inset: -8% -12%;
+  pointer-events: none;
+  transform: translateX(110%);
+  background: #7f8b70;
+  box-shadow: 0 0 60px rgb(56 72 44 / 25%);
+}
+
+.floral-passage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Curtain reveal onto the beach ---------- */
+
+.shore-curtains {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.shore-curtain {
+  position: absolute;
+  top: -3%;
+  width: 51%;
+  height: 106%;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #f4e9d4 0%,
+      #d8c5a6 5%,
+      #eee0c5 9%,
+      #fff4df 13%,
+      #e0ceb0 17%
+    );
+
+  box-shadow:
+    inset 0 0 60px rgb(145 112 72 / 15%),
+    0 0 30px rgb(80 58 37 / 15%);
+}
+
+.curtain-left {
+  left: 0;
+  border-radius: 0 0 18% 0;
+}
+
+.curtain-right {
+  right: 0;
+  border-radius: 0 0 0 18%;
+}
+
+.curtain-valance {
+  position: absolute;
+  inset: -5% -5% auto;
+  height: 22%;
+
+  background: linear-gradient(
+    #d9c5a5,
+    #f8ecd5 55%,
+    #e4d1b0
+  );
+
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 10px 25px rgb(94 69 43 / 13%);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+  .room-story .room-copy,
+  .room-garden .room-copy {
+    padding: 80px 16px 90px;
+  }
+
+  .room-copy .practical-room-title {
+    margin: 10px 0 16px;
+    font-size: 33px;
+    letter-spacing: -1.5px;
+  }
+
+  .seating-panel {
+    width: min(92vw, 480px);
+    grid-template-columns: 1fr 0.8fr;
+    gap: 12px;
+    padding: 18px 15px;
+    max-height: 64svh;
+  }
+
+  .seating-form h3 {
+    margin: 14px 0 10px;
+    font-size: 25px;
+  }
+
+  .seating-form > p {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  .seating-form form {
+    margin-top: 17px;
+  }
+
+  .preview-badge {
+    font-size: 6px;
+    padding: 5px 7px;
+    letter-spacing: 1px;
+  }
+
+  .seating-form label {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .invitation-input-row input {
+    font-size: 16px;
+  }
+
+  .invitation-input-row button {
+    flex-basis: 30px;
+  }
+
+  .table-result {
+    padding: 12px;
+  }
+
+  .table-result strong {
+    font-size: 25px;
+  }
+
+  .seating-map figcaption {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .celebration-panel {
+    width: 90vw;
+    padding: 20px;
+    max-height: 49svh;
+  }
+
+  .celebration-panel summary strong {
+    font-size: 20px;
+  }
+
+  .celebration-panel details > p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .seating-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .seating-map svg {
+    max-height: 230px;
+  }
+}
+
+/* No transition overlays in the accessible static layout. */
+.reduced-journey .entrance-dissolve,
+.reduced-journey .stone-passage,
+.reduced-journey .floral-passage,
+.reduced-journey .shore-curtains {
+  display: none;
+}
+
+/* Seating becomes part of the room instead of a floating card. */
+
+.room-story .room-readability {
+  background:
+    radial-gradient(
+      ellipse at 28% 52%,
+      rgb(247 237 216 / 78%),
+      transparent 58%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(235 222 199 / 30%),
+      transparent 70%
+    );
+}
+
+.room-story .room-copy {
+  padding: 90px 6% 80px;
+  color: #584d3b;
+  text-shadow: none;
+}
+
+.room-story .room-copy > .eyebrow {
+  color: #796b52;
+}
+
+.room-story .room-copy .practical-room-title {
+  margin: 12px 0 30px;
+  font-size: clamp(34px, 4.6vw, 68px);
+}
+
+.room-story .practical-room-title em {
+  color: #788168;
+}
+
+/* Remove the rectangular container. */
+.room-story .seating-panel {
+  width: min(960px, 88vw);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(30px, 7vw, 110px);
+
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  max-height: none;
+  overflow: visible;
+}
+
+/* The main room heading already says this. */
+.room-story .seating-form h3 {
+  display: none;
+}
+
+.room-story .seating-form {
+  padding: 15px 0;
+}
+
+/* Keep the demo disclosure, but make it a quiet inscription. */
+.room-story .preview-badge {
+  padding: 0 0 10px;
+  border: 0;
+  border-radius: 0;
+
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  color: #89775a;
+}
+
+.room-story .seating-form > p {
+  max-width: 310px;
+  margin-top: 12px;
+  font: 17px / 1.8 Georgia, serif;
+  color: #75674f;
+}
+
+.room-story .seating-form form {
+  margin-top: 32px;
+}
+
+.room-story .seating-form label {
+  color: #79694e;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.room-story .invitation-input-row {
+  border-bottom: 1px solid #a18e6b;
+}
+
+.room-story .invitation-input-row input {
+  padding: 14px 0;
+  font: italic 25px Georgia, serif;
+  color: #56674f;
+}
+
+.room-story .invitation-input-row input::placeholder {
+  color: #9b8a6a;
+}
+
+.room-story .invitation-input-row button {
+  color: #6e7d5e;
+}
+
+.room-story .invitation-input-row:focus-within {
+  border-bottom-color: #5d7355;
+  box-shadow: 0 1px #5d7355;
+}
+
+/* The result appears as lettering, not another card. */
+.room-story .table-result {
+  margin-top: 24px;
+  padding: 0 0 0 16px;
+  border-left: 1px solid #82916f;
+  background: transparent;
+}
+
+.room-story .table-result strong {
+  font: 34px Georgia, serif;
+  color: #566c4c;
+}
+
+.room-story .table-result > span,
+.room-story .table-result p {
+  color: #6e7d60;
+}
+
+.room-story .lookup-message {
+  max-width: 320px;
+  color: #946951;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.room-story .seating-form .seating-disclaimer {
+  max-width: 290px;
+  margin-top: 22px;
+  font: italic 11px / 1.7 Georgia, serif;
+  color: #8b7b60;
+}
+
+/* Draw the seating plan directly over the architecture. */
+.room-story .seating-map {
+  width: 100%;
+  max-width: 340px;
+  justify-self: center;
+  position: relative;
+}
+
+/* A soft pool of light, without a visible panel edge. */
+.room-story .seating-map::before {
+  content: "";
+  position: absolute;
+  inset: 8% -12% 4%;
+  z-index: -1;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    ellipse,
+    rgb(250 240 218 / 60%),
+    transparent 72%
+  );
+}
+
+.room-story .seating-map {
+  isolation: isolate;
+}
+
+.room-story .seating-map svg {
+  width: 100%;
+  max-height: 44svh;
+}
+
+/* Remove the opaque fill from the outer arched floor plan. */
+.room-story .seating-map svg > rect:first-of-type {
+  fill: transparent;
+  stroke: #aa926b;
+  stroke-width: 1.2;
+}
+
+/* Let the architectural background show through the aisle. */
+.room-story .seating-map svg > rect:nth-of-type(3) {
+  fill: #d4c29e;
+  fill-opacity: 0.38;
+}
+
+.room-story .map-caption {
+  fill: #806b4e;
+}
+
+.room-story .seating-map figcaption {
+  margin-top: 12px;
+  font: italic 13px Georgia, serif;
+  color: #806f53;
+}
+
+/* Compact composition for phones. */
+@media (max-width: 700px) {
+  .room-story .room-copy {
+    padding: 76px 7% 80px;
+  }
+
+  .room-story .room-copy .practical-room-title {
+    margin: 10px 0 22px;
+    font-size: clamp(29px, 7.5vw, 40px);
+    letter-spacing: -1px;
+  }
+
+  .room-story .seating-panel {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: 16px;
+    padding: 0;
+  }
+
+  .room-story .seating-form > p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .room-story .preview-badge {
+    font-size: 6px;
+    letter-spacing: 1.5px;
+  }
+
+  .room-story .seating-form form {
+    margin-top: 22px;
+  }
+
+  .room-story .seating-form label {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .room-story .invitation-input-row input {
+    font-size: 20px;
+  }
+
+  .room-story .table-result {
+    margin-top: 18px;
+    padding-left: 10px;
+  }
+
+  .room-story .table-result strong {
+    font-size: 27px;
+  }
+
+  .room-story .seating-map svg {
+    max-height: 36svh;
+  }
+
+  .room-story .seating-map figcaption {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .room-story .seating-form .seating-disclaimer {
+    font-size: 9px;
+    margin-top: 15px;
+  }
+}
+
+/* Allow access to all content on unusually short screens. */
+@media (max-height: 650px) {
+  .room-story .room-copy {
+    justify-content: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .room-story .seating-panel {
+    flex-shrink: 0;
+  }
+}
+
+/* =========================================
+   WEDDING WELCOME SALON
+   ========================================= */
+
+.room-story .room-readability {
+  background: linear-gradient(
+    90deg,
+    rgb(12 29 23 / 30%),
+    rgb(12 29 23 / 8%) 55%,
+    transparent
+  );
+}
+
+.room-story .room-copy {
+  padding: 90px 7% 100px;
+  color: #f4e7cd;
+  text-shadow: none;
+}
+
+.room-story .room-copy > .eyebrow {
+  color: #cfbd96;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.room-story .room-copy .practical-room-title {
+  margin: 15px 0 28px;
+  font-size: clamp(34px, 4.4vw, 65px);
+  letter-spacing: -2px;
+  color: #fff0d4;
+}
+
+.room-story .practical-room-title em {
+  color: #cfb789;
+}
+
+/* The room itself supplies the background. */
+.room-story .seating-panel {
+  width: min(940px, 88vw);
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: center;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+
+  max-height: none;
+  overflow: visible;
+}
+
+.room-story .seating-form {
+  padding: 0;
+}
+
+.room-story .seating-form h3 {
+  display: none;
+}
+
+/* Understated disclosure rather than a pill badge. */
+.room-story .preview-badge {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+
+  color: #b8aa86;
+  font-size: 7px;
+  letter-spacing: 2.5px;
+}
+
+.room-story .seating-form > p {
+  margin-top: 17px;
+  max-width: 300px;
+
+  font: 17px / 1.9 Georgia, serif;
+  color: #d6c9af;
+}
+
+.room-story .seating-form form {
+  margin-top: 30px;
+}
+
+.room-story .seating-form label {
+  margin-bottom: 10px;
+  color: #b9a780;
+  font-size: 8px;
+  letter-spacing: 2.5px;
+}
+
+/* An engraved-looking line and brass action button. */
+.room-story .invitation-input-row {
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #a18e64;
+}
+
+.room-story .invitation-input-row input {
+  padding: 12px 0;
+  color: #fff0d5;
+  font: italic 27px Georgia, serif;
+  letter-spacing: 1px;
+}
+
+.room-story .invitation-input-row input::placeholder {
+  color: #a99b7e;
+  font-style: italic;
+}
+
+.room-story .invitation-input-row button {
+  flex: 0 0 39px;
+  height: 39px;
+  border: 1px solid #b29a67;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #d9c18c,
+    #a98b54
+  );
+
+  color: #34483a;
+  font-size: 23px;
+  box-shadow: 0 3px 15px rgb(0 0 0 / 12%);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.room-story .invitation-input-row button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.room-story .invitation-input-row:focus-within {
+  border-bottom-color: #ead6a8;
+  box-shadow: 0 1px #ead6a8;
+}
+
+.room-story .lookup-message {
+  margin-top: 15px;
+  max-width: 300px;
+  color: #e0bba5;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* The answer is revealed as typography, without a result card. */
+.room-story .table-result {
+  position: relative;
+  margin-top: 22px;
+  padding: 0 0 0 17px;
+  border-left: 1px solid #c6ac76;
+  background: none;
+}
+
+.room-story .table-result > span {
+  color: #bfae88;
+  font-size: 7px;
+  letter-spacing: 2px;
+}
+
+.room-story .table-result strong {
+  margin: 9px 0;
+  color: #f3dfb3;
+  font: 38px Georgia, serif;
+}
+
+.room-story .table-result p {
+  color: #c4b99e;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.room-story .seating-form .seating-disclaimer {
+  max-width: 285px;
+  margin-top: 22px;
+
+  color: #b3aa92;
+  font: italic 11px / 1.7 Georgia, serif;
+}
+
+/* =========================================
+   ENGRAVED SEATING DISPLAY
+   ========================================= */
+
+.room-story .seating-map {
+  width: 100%;
+  max-width: 330px;
+  margin: 0;
+  justify-self: center;
+  isolation: isolate;
+}
+
+/* Remove the previous light background treatment. */
+.room-story .seating-map::before {
+  display: none;
+}
+
+.room-story .seating-map svg {
+  display: block;
+  width: 100%;
+  max-height: 43svh;
+  overflow: visible;
+}
+
+/* The arch reads as a brass outline within the room. */
+.room-story .seating-map svg > rect:first-of-type {
+  fill: #e8d5ab;
+  fill-opacity: .045;
+  stroke: #c3aa75;
+  stroke-width: 1;
+}
+
+/* Couple's table */
+.room-story .seating-map svg > rect:nth-of-type(2) {
+  fill: #baa16e;
+  fill-opacity: .22;
+  stroke: #c7ae79;
+  stroke-width: .7;
+}
+
+/* Aisle */
+.room-story .seating-map svg > rect:nth-of-type(3) {
+  fill: #d2bd8d;
+  fill-opacity: .09;
+}
+
+.room-story .map-caption {
+  fill: #c9b78e;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+/* Match the existing unselected table colors. */
+.room-story .seating-map circle[fill="#e5d8c0"] {
+  fill: #bba475;
+  fill-opacity: .13;
+  stroke: #bca573;
+  stroke-width: 1;
+}
+
+.room-story .seating-map circle[fill="#d5c5aa"] {
+  fill: #c2ab7c;
+  fill-opacity: .55;
+}
+
+.room-story .seating-map text[fill="#7c6c55"] {
+  fill: #e6d1a2;
+}
+
+/* Highlighted table */
+.room-story .seating-map circle[fill="#7b8d72"] {
+  fill: #d2b77f;
+  stroke: #f3dfb0;
+}
+
+.room-story .seating-map text[fill="#fff8e9"] {
+  fill: #354a3d;
+}
+
+.room-story .table-halo {
+  stroke: #f0d79e;
+  filter: drop-shadow(0 0 5px rgb(239 213 155 / 35%));
+}
+
+.room-story .seating-map figcaption {
+  margin-top: 12px;
+  color: #c2b38f;
+  font: italic 12px Georgia, serif;
+}
+
+/* =========================================
+   QUIET AMBIENT MOVEMENT
+   ========================================= */
+
+.salon-light-breathe {
+  animation: salon-glow 7s ease-in-out infinite alternate;
+}
+
+.salon-pendant {
+  transform-origin: 800px 0;
+  animation: salon-pendant-sway 10s ease-in-out infinite alternate;
+}
+
+@keyframes salon-glow {
+  from { opacity: .6; }
+  to { opacity: 1; }
+}
+
+@keyframes salon-pendant-sway {
+  from { transform: rotate(-.35deg); }
+  to { transform: rotate(.35deg); }
+}
+
+/* =========================================
+   SMALLER SCREENS
+   ========================================= */
+
+@media (max-width: 700px) {
+  .room-story .room-copy {
+    padding: 78px 6% 85px;
+  }
+
+  .room-story .room-copy .practical-room-title {
+    margin: 12px 0 24px;
+    font-size: clamp(30px, 7.8vw, 42px);
+    letter-spacing: -1.3px;
+  }
+
+  .room-story .seating-panel {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+    gap: 20px;
+  }
+
+  .room-story .seating-form > p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .room-story .preview-badge {
+    font-size: 6px;
+    letter-spacing: 1.6px;
+  }
+
+  .room-story .seating-form form {
+    margin-top: 22px;
+  }
+
+  .room-story .seating-form label {
+    font-size: 7px;
+    letter-spacing: 1.3px;
+  }
+
+  .room-story .invitation-input-row {
+    gap: 7px;
+  }
+
+  .room-story .invitation-input-row input {
+    font-size: 21px;
+  }
+
+  .room-story .invitation-input-row button {
+    flex-basis: 31px;
+    height: 31px;
+    font-size: 20px;
+  }
+
+  .room-story .table-result {
+    padding-left: 11px;
+    margin-top: 18px;
+  }
+
+  .room-story .table-result strong {
+    font-size: 29px;
+  }
+
+  .room-story .seating-map svg {
+    max-height: 35svh;
+  }
+
+  .room-story .seating-map figcaption {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .room-story .seating-form .seating-disclaimer {
+    font-size: 9px;
+    margin-top: 17px;
+  }
+}
+
+@media (max-height: 650px) {
+  .room-story .room-copy {
+    justify-content: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .room-story .seating-panel {
+    flex-shrink: 0;
+  }
+}
+
+/* =====================================
+   AN OPEN WEDDING GUESTBOOK
+   ===================================== */
+
+.room-story .seating-panel {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 78px);
+
+  width: min(920px, 90vw);
+  padding: 38px 44px 34px;
+
+  /* Warm paper, with shadow at the binding. */
+  background:
+    linear-gradient(
+      90deg,
+      transparent 45%,
+      rgb(113 83 44 / 5%) 48%,
+      rgb(113 83 44 / 18%) 50%,
+      rgb(255 252 236 / 70%) 50.5%,
+      rgb(113 83 44 / 5%) 52%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 20% 10%,
+      #fffaf0,
+      transparent 65%
+    ),
+    linear-gradient(110deg, #f2e6ce, #fff5e2 55%, #edddbe);
+
+  color: #625039;
+  border: 1px solid #d9bd83;
+  border-radius: 7px 20px 20px 7px;
+
+  box-shadow:
+    0 2px 0 #e8d5b0,
+    0 5px 0 #bca278,
+    0 8px 0 #e4ceaa,
+    0 11px 0 #786346,
+    0 28px 55px rgb(8 25 18 / 40%),
+    inset 0 1px 0 #fffdf5;
+
+  max-height: none;
+  overflow: visible;
+  text-shadow: none;
+}
+
+/* Embossed border, inset from the paper edges. */
+.room-story .seating-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 13px;
+
+  border: 1px solid rgb(175 135 68 / 45%);
+  border-radius: 3px 13px 13px 3px;
+
+  box-shadow: inset 0 0 0 4px rgb(255 248 227 / 65%);
+  pointer-events: none;
+}
+
+/* Burgundy ribbon emerging from the binding. */
+.room-story .seating-panel::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+
+  left: calc(50% - 12px);
+  top: -8px;
+  width: 24px;
+  height: 90px;
+
+  background: linear-gradient(
+    90deg,
+    #75464e,
+    #b17a7e 45%,
+    #8d5961
+  );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    50% 86%,
+    0 100%
+  );
+
+  filter: drop-shadow(2px 4px 3px rgb(63 34 26 / 20%));
+  pointer-events: none;
+}
+
+/* =====================================
+   LEFT PAGE — PERSONAL INVITATION
+   ===================================== */
+
+.room-story .seating-form {
+  position: relative;
+  align-self: center;
+  padding: 5px 0 20px;
+}
+
+/* Restore the guestbook heading, with a more restrained size. */
+.room-story .seating-form h3 {
+  display: block;
+  margin: 20px 0 18px;
+
+  font: 400 clamp(27px, 3.2vw, 42px) / 1.12 Georgia, serif;
+  letter-spacing: -1.3px;
+  color: #67513a;
+}
+
+.room-story .seating-form h3 em {
+  color: #839071;
+}
+
+/* A small editorial label, not an app badge. */
+.room-story .preview-badge {
+  display: inline-block;
+  padding: 0 0 8px;
+  border: 0;
+  border-bottom: 1px solid #c9ad76;
+  border-radius: 0;
+
+  color: #a08960;
+  font-size: 7px;
+  letter-spacing: 2.4px;
+}
+
+.room-story .seating-form > p {
+  margin: 0;
+  max-width: 290px;
+
+  color: #948269;
+  font: 14px / 1.85 Georgia, serif;
+}
+
+.room-story .seating-form form {
+  margin-top: 26px;
+}
+
+.room-story .seating-form label {
+  margin-bottom: 8px;
+
+  color: #99815a;
+  font-size: 7px;
+  letter-spacing: 2px;
+}
+
+.room-story .invitation-input-row {
+  gap: 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #baa077;
+}
+
+.room-story .invitation-input-row input {
+  padding: 10px 0;
+
+  color: #617356;
+  font: italic 23px Georgia, serif;
+  letter-spacing: 1px;
+}
+
+.room-story .invitation-input-row input::placeholder {
+  color: #b3a17f;
+}
+
+.room-story .invitation-input-row:focus-within {
+  border-bottom-color: #7c8e6c;
+  box-shadow: 0 1px #7c8e6c;
+}
+
+/* The lookup button becomes a small wax seal. */
+.room-story .invitation-input-row button {
+  flex: 0 0 42px;
+  height: 42px;
+
+  border: 4px double #bd8d82;
+  border-radius: 48% 52% 46% 54%;
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    #b9867b,
+    #99685f 70%
+  );
+
+  color: #f9e6c4;
+  font-size: 22px;
+
+  box-shadow:
+    inset 0 1px 3px #dbafa0,
+    0 3px 6px rgb(90 56 35 / 20%);
+
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.room-story .invitation-input-row button:hover {
+  transform: rotate(-8deg) translateY(-2px);
+  filter: none;
+
+  box-shadow:
+    inset 0 1px 3px #dbafa0,
+    0 5px 9px rgb(90 56 35 / 25%);
+}
+
+.room-story .lookup-message {
+  margin-top: 13px;
+  color: #a27360;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* The result reads like an inscription on the page. */
+.room-story .table-result {
+  margin-top: 19px;
+  padding: 0 0 0 14px;
+  border-left: 1px solid #9daa86;
+  background: transparent;
+}
+
+.room-story .table-result > span {
+  color: #8c997a;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+}
+
+.room-story .table-result strong {
+  margin: 7px 0;
+  color: #637653;
+  font: 33px Georgia, serif;
+}
+
+.room-story .table-result p {
+  color: #859174;
+  font-size: 10px;
+}
+
+.room-story .seating-form .seating-disclaimer {
+  margin-top: 19px;
+  max-width: 270px;
+
+  color: #a29175;
+  font: italic 10px / 1.6 Georgia, serif;
+}
+
+/* =====================================
+   RIGHT PAGE — ILLUSTRATED SEATING PLAN
+   ===================================== */
+
+.room-story .seating-map {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0;
+  justify-self: center;
+}
+
+/* Printed page title above the diagram. */
+.room-story .seating-map::before {
+  content: "YOUR PLACE AT THE TABLE";
+  display: block;
+  position: static;
+
+  margin-bottom: 15px;
+  padding: 0;
+
+  background: none;
+  border-radius: 0;
+
+  color: #a08a61;
+  text-align: center;
+  font: 7px Arial, sans-serif;
+  letter-spacing: 2.3px;
+}
+
+.room-story .seating-map svg {
+  display: block;
+  width: 100%;
+  max-height: 37svh;
+
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / 65%));
+}
+
+/* The arch is now an illustration printed on paper. */
+.room-story .seating-map svg > rect:first-of-type {
+  fill: #f6ecd7;
+  fill-opacity: 0.55;
+  stroke: #c6aa73;
+  stroke-width: 1;
+}
+
+.room-story .seating-map svg > rect:nth-of-type(2) {
+  fill: #d7c49c;
+  fill-opacity: 0.65;
+  stroke: #c6aa73;
+  stroke-width: 0.7;
+}
+
+.room-story .seating-map svg > rect:nth-of-type(3) {
+  fill: #e2d5b9;
+  fill-opacity: 0.55;
+}
+
+.room-story .map-caption {
+  fill: #a08b64;
+  font-size: 8px;
+  letter-spacing: 1.6px;
+}
+
+.room-story .seating-map circle[fill="#e5d8c0"] {
+  fill: #eadcc0;
+  fill-opacity: 1;
+  stroke: #c0a36d;
+  stroke-width: 1;
+}
+
+.room-story .seating-map circle[fill="#d5c5aa"] {
+  fill: #cfbc94;
+  fill-opacity: 1;
+}
+
+.room-story .seating-map text[fill="#7c6c55"] {
+  fill: #8b754e;
+}
+
+/* Sage green selected table, with a gold outline. */
+.room-story .seating-map circle[fill="#7b8d72"] {
+  fill: #879777;
+  stroke: #b69c66;
+  stroke-width: 1.5;
+}
+
+.room-story .seating-map text[fill="#fff8e9"] {
+  fill: #fff5df;
+}
+
+.room-story .table-halo {
+  stroke: #a9b395;
+  filter: none;
+}
+
+.room-story .seating-map figcaption {
+  margin-top: 12px;
+  color: #9c8968;
+  font: italic 12px Georgia, serif;
+}
+
+/* =====================================
+   COMPOSITION AND SMALL SCREENS
+   ===================================== */
+
+.room-story .room-copy .practical-room-title {
+  margin: 10px 0 28px;
+  font-size: clamp(32px, 4vw, 58px);
+}
+
+@media (max-width: 700px) {
+  .room-story .room-copy {
+    padding: 78px 5% 85px;
+  }
+
+  .room-story .room-copy .practical-room-title {
+    margin: 10px 0 24px;
+    font-size: clamp(28px, 7vw, 38px);
+  }
+
+  .room-story .seating-panel {
+    width: 92vw;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 25px;
+    padding: 25px 22px 22px;
+  }
+
+  .room-story .seating-panel::before {
+    inset: 8px;
+  }
+
+  .room-story .seating-panel::after {
+    left: calc(50% - 8px);
+    width: 16px;
+    height: 57px;
+  }
+
+  .room-story .seating-form h3 {
+    margin: 14px 0 12px;
+    font-size: 25px;
+    letter-spacing: -0.7px;
+  }
+
+  .room-story .seating-form > p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .room-story .preview-badge {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .room-story .seating-form form {
+    margin-top: 19px;
+  }
+
+  .room-story .seating-form label {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .room-story .invitation-input-row {
+    gap: 6px;
+  }
+
+  .room-story .invitation-input-row input {
+    font-size: 18px;
+    min-width: 0;
+  }
+
+  .room-story .invitation-input-row button {
+    flex-basis: 32px;
+    height: 32px;
+    font-size: 18px;
+    border-width: 3px;
+  }
+
+  .room-story .seating-map::before {
+    font-size: 6px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  .room-story .seating-map svg {
+    max-height: 30svh;
+  }
+
+  .room-story .seating-map figcaption {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .room-story .table-result strong {
+    font-size: 26px;
+  }
+
+  .room-story .seating-form .seating-disclaimer {
+    font-size: 8px;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .room-story .seating-panel {
+    gap: 17px;
+    padding: 22px 17px;
+  }
+
+  .room-story .seating-form h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-height: 740px) {
+  .room-story .room-copy {
+    justify-content: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .room-story .seating-panel {
+    flex-shrink: 0;
+  }
+}
+
+/* =====================================
+   SUNSET PAVILION
+   ===================================== */
+
+.room-garden .room-readability {
+  background: linear-gradient(
+    rgb(53 48 36 / 12%),
+    transparent 35%,
+    rgb(72 56 37 / 12%)
+  );
+}
+
+.room-garden .room-copy {
+  padding: 82px 24px 95px;
+  justify-content: center;
+  text-shadow: none;
+}
+
+.room-garden .room-copy > .eyebrow {
+  color: #fff2d8;
+  text-shadow: 0 2px 10px rgb(76 59 38 / 35%);
+}
+
+/* Let the physical programme be the main focal point. */
+.room-garden .room-copy > h2 {
+  margin: 10px 0 34px;
+  font-size: clamp(26px, 3vw, 43px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: #fff3dc;
+  text-shadow: 0 2px 15px rgb(76 59 38 / 30%);
+}
+
+.room-garden .room-copy > h2 em {
+  color: #fff0d1;
+}
+
+/* =====================================
+   HANGING LINEN PROGRAMME
+   ===================================== */
+
+.wedding-programme {
+  position: relative;
+  width: min(440px, 84vw);
+  flex-shrink: 0;
+  color: #6e5c43;
+  text-align: center;
+
+  filter: drop-shadow(0 18px 22px rgb(75 52 31 / 22%));
+}
+
+/* Small suspension cords. */
+.programme-cord {
+  position: absolute;
+  z-index: 0;
+  top: -40px;
+  width: 2px;
+  height: 45px;
+  background: #a78b5e;
+}
+
+.cord-left {
+  left: 14%;
+  transform: rotate(12deg);
+}
+
+.cord-right {
+  right: 14%;
+  transform: rotate(-12deg);
+}
+
+/* Brass hanging rail. */
+.programme-rail {
+  position: absolute;
+  z-index: 3;
+  top: -6px;
+  left: -5%;
+  width: 110%;
+  height: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    #f2d59c,
+    #c1a06a 45%,
+    #8c7045
+  );
+
+  box-shadow:
+    inset 0 1px 0 #fff0c5,
+    0 3px 5px rgb(83 59 30 / 18%);
+}
+
+.programme-rail span {
+  position: absolute;
+  top: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    #f5dba7,
+    #ad8a50 75%
+  );
+}
+
+.programme-rail span:first-child {
+  left: -5px;
+}
+
+.programme-rail span:last-child {
+  right: -5px;
+}
+
+/* A pointed fabric edge, rather than a rectangular card. */
+.programme-linen {
+  position: relative;
+  padding: 28px 34px 48px;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(121 94 53 / 2.5%) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(121 94 53 / 2%) 0 1px,
+      transparent 1px 5px
+    ),
+    linear-gradient(
+      90deg,
+      #e9dabc,
+      #fff5df 12%,
+      #f7ecd3 50%,
+      #fff6e4 88%,
+      #e4d2af
+    );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 94%,
+    50% 100%,
+    0 94%
+  );
+}
+
+/* Stitched side borders. */
+.programme-linen::before,
+.programme-linen::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 43px;
+  width: 5px;
+
+  border-left: 1px solid rgb(166 135 80 / 40%);
+  border-right: 1px dashed rgb(166 135 80 / 28%);
+
+  pointer-events: none;
+}
+
+.programme-linen::before {
+  left: 13px;
+}
+
+.programme-linen::after {
+  right: 13px;
+}
+
+.programme-kicker {
+  color: #a68c5f;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.programme-inner h3 {
+  margin: 14px 0 13px;
+  font: 400 clamp(30px, 3vw, 42px) / 1.06 Georgia, serif;
+  letter-spacing: -1.3px;
+  color: #786247;
+}
+
+.programme-inner h3 em {
+  color: #8a9478;
+}
+
+.programme-date {
+  color: #a18b68;
+  font-size: 7px;
+  letter-spacing: 1.8px;
+}
+
+.programme-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 18px 0 22px;
+
+  color: #b39662;
+  font-size: 20px;
+}
+
+.programme-flourish span {
+  width: 44px;
+  height: 1px;
+  background: #ccb68b;
+}
+
+/* =====================================
+   EMBROIDERED-STYLE TIMELINE
+   ===================================== */
+
+.programme-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.programme-timeline::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 18px;
+  bottom: 28px;
+  width: 1px;
+
+  background: linear-gradient(
+    #d0bb91,
+    #ae9160,
+    #d0bb91
+  );
+}
+
+.programme-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 17px;
+  padding-bottom: 24px;
+}
+
+.programme-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.programme-marker {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+  border: 1px solid #bda16d;
+  border-radius: 50%;
+
+  background: #f5e8cb;
+  color: #a18350;
+  font: italic 13px Georgia, serif;
+
+  box-shadow: inset 0 0 0 3px #fff4dc;
+}
+
+.programme-time {
+  margin: 2px 0 7px;
+  color: #a48e6a;
+  font-size: 6px;
+  letter-spacing: 1.7px;
+}
+
+.programme-timeline h4 {
+  margin: 0 0 7px;
+  color: #766045;
+  font: 400 24px Georgia, serif;
+}
+
+.programme-description {
+  color: #938269;
+  font: italic 12px / 1.6 Georgia, serif;
+}
+
+.programme-venue {
+  margin-top: 6px;
+  color: #aa977a;
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+/* A small note at the foot of the programme. */
+.programme-attire {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid #d7c5a2;
+  text-align: left;
+}
+
+.programme-attire summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4px 0;
+  cursor: pointer;
+  list-style: none;
+
+  color: #8e7a59;
+  font: italic 15px Georgia, serif;
+}
+
+.programme-attire summary::-webkit-details-marker {
+  display: none;
+}
+
+.programme-attire summary:focus-visible {
+  outline: 2px solid #8b9775;
+  outline-offset: 5px;
+}
+
+.attire-symbol {
+  font-style: normal;
+  transition: transform 180ms ease;
+}
+
+.programme-attire[open] .attire-symbol {
+  transform: rotate(45deg);
+}
+
+.programme-attire > p {
+  margin-top: 12px;
+  color: #a08c6f;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.programme-signature {
+  margin-top: 19px;
+  color: #a5916f;
+  font: italic 15px Georgia, serif;
+}
+
+/* Only the surrounding lanterns move.
+   The programme remains steady for reading. */
+.pavilion-lantern {
+  transform-origin: 0 -100px;
+  animation: pavilion-lantern-sway 8s ease-in-out infinite alternate;
+}
+
+@keyframes pavilion-lantern-sway {
+  from { transform: rotate(-1.2deg); }
+  to { transform: rotate(1.2deg); }
+}
+
+/* =====================================
+   RESPONSIVE FIT
+   ===================================== */
+
+@media (max-width: 700px) {
+  .room-garden .room-copy {
+    padding: 78px 20px 85px;
+  }
+
+  .room-garden .room-copy > h2 {
+    margin: 8px 0 28px;
+    font-size: 27px;
+    letter-spacing: -.7px;
+  }
+
+  .wedding-programme {
+    width: min(350px, 83vw);
+  }
+
+  .programme-linen {
+    padding: 24px 26px 43px;
+  }
+
+  .programme-inner h3 {
+    font-size: 33px;
+  }
+
+  .programme-flourish {
+    margin: 15px 0 18px;
+  }
+
+  .programme-timeline li {
+    gap: 12px;
+    padding-bottom: 19px;
+  }
+
+  .programme-timeline h4 {
+    font-size: 22px;
+  }
+
+  .programme-description {
+    font-size: 11px;
+  }
+
+  .programme-venue {
+    font-size: 8px;
+  }
+
+  .programme-attire {
+    margin-top: 17px;
+  }
+}
+
+/* Scrolling belongs to the room when space is tight,
+   not to a tiny box inside the programme. */
+@media (max-height: 850px) {
+  .room-garden .room-copy {
+    justify-content: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .wedding-programme {
+    margin-bottom: 15px;
+  }
+}
+
+/* One scroll surface: the cinematic journey. */
+.room-story .room-copy,
+.room-garden .room-copy {
+  inset: 88px 20px 80px;
+  display: block;
+  padding: 0;
+  min-height: 0;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
+
+.room-fit {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  /* Prevent unscaled layout bounds creating overflow. */
+  overflow: clip;
+}
+
+.room-fit-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+
+  /* Space for suspension cords, ribbon and book edges. */
+  padding: 42px 28px 24px;
+  transform-origin: center;
+}
+
+/* Accessible section headings, without visual duplication. */
+.room-copy .room-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Compact guestbook */
+.room-story .seating-panel {
+  width: min(840px, 100%);
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+  overscroll-behavior: auto;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 4vw, 52px);
+  padding: 28px 34px;
+}
+
+.room-story .seating-panel::after {
+  height: 62px;
+}
+
+.room-story .seating-form {
+  padding: 0;
+}
+
+.room-story .seating-form h3 {
+  margin: 15px 0 12px;
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+.room-story .seating-form > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.room-story .seating-form form {
+  margin-top: 18px;
+}
+
+.room-story .invitation-input-row input {
+  padding: 8px 0;
+  font-size: 20px;
+}
+
+.room-story .table-result {
+  margin-top: 12px;
+}
+
+.room-story .table-result strong {
+  margin: 4px 0;
+  font-size: 27px;
+}
+
+.room-story .seating-form .seating-disclaimer {
+  margin-top: 12px;
+  font-size: 10px;
+}
+
+.room-story .seating-map {
+  max-width: 260px;
+}
+
+.room-story .seating-map svg {
+  width: 100%;
+  height: 270px;
+  max-height: none;
+}
+
+.room-story .seating-map::before {
+  margin-bottom: 10px;
+}
+
+.room-story .seating-map figcaption {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+/* Shorter hanging programme */
+.room-garden .wedding-programme {
+  width: min(420px, 100%);
+  margin: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.room-garden .programme-linen {
+  padding: 22px 30px 38px;
+}
+
+.room-garden .programme-inner h3 {
+  margin: 10px 0;
+  font-size: 34px;
+}
+
+.room-garden .programme-flourish {
+  margin: 12px 0 15px;
+}
+
+.room-garden .programme-timeline li {
+  gap: 12px;
+  padding-bottom: 18px;
+}
+
+.room-garden .programme-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.room-garden .programme-timeline h4 {
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.room-garden .programme-time {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.room-garden .programme-description {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.room-garden .programme-venue {
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.room-garden .programme-attire {
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+.room-garden .programme-attire > p {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.room-garden .programme-signature {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* Mobile: prioritize the invitation form. */
+@media (max-width: 600px) {
+  .room-story .room-copy,
+  .room-garden .room-copy {
+    inset: 76px 10px 76px;
+  }
+
+  .room-fit-content {
+    padding: 40px 12px 20px;
+  }
+
+  .room-story .seating-panel {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    gap: 18px;
+    padding: 24px 20px;
+  }
+
+  .room-story .seating-form h3 {
+    font-size: 25px;
+    letter-spacing: -0.5px;
+  }
+
+  .room-story .seating-form > p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .room-story .seating-map svg {
+    height: auto;
+    max-height: 230px;
+  }
+
+  .room-story .seating-map::before {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .room-story .seating-map figcaption {
+    font-size: 10px;
+  }
+
+  .room-story .invitation-input-row input {
+    font-size: 18px;
+  }
+
+  .room-story .invitation-input-row button {
+    flex-basis: 36px;
+    height: 36px;
+  }
+
+  .room-garden .programme-linen {
+    padding: 22px 24px 36px;
+  }
+
+  .room-garden .programme-inner h3 {
+    font-size: 30px;
+  }
+}
+
+/* Reduced motion: let these sections grow with their content. */
+.reduced-journey .room-story .room-copy,
+.reduced-journey .room-garden .room-copy {
+  position: relative;
+  inset: auto;
+  min-height: 100svh;
+  padding: 80px 12px 40px;
+}
+
+.reduced-journey .room-fit {
+  height: auto;
+  overflow: visible;
+}
+
+.reduced-journey .room-fit-content {
+  transform: none !important;
+}
+
+/* SHARED ARCHITECTURE */
+
+.venue-details {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* The old flower wipe becomes the same ivory drapery
+   seen in the architectural passageways. */
+.floral-passage {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(100 74 43 / 3%) 0 1px,
+      transparent 1px 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #cbb999 0%,
+      #eee0c7 6%,
+      #fff2dc 10%,
+      #e2cfad 15%,
+      #c5ae88 20%
+    );
+
+  box-shadow:
+    inset 0 0 100px rgb(95 70 39 / 18%),
+    0 0 40px rgb(62 47 28 / 15%);
+}
+
+.floral-passage svg {
+  display: none;
+}
+
+/* Carved stone shares the room's champagne palette. */
+.stone-passage {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 138px,
+      rgb(114 91 58 / 15%) 139px 141px,
+      rgb(255 247 229 / 30%) 142px 143px
+    ),
+    linear-gradient(
+      90deg,
+      #a38c6b,
+      #e2cfac 22%,
+      #f0e2c8 44%,
+      #c9b18a 76%,
+      #9c8260
+    );
+}
+
+.stone-column {
+  box-shadow:
+    inset 8px 0 15px rgb(255 248 224 / 20%),
+    inset -12px 0 22px rgb(96 73 43 / 14%);
+}
+
+/* MATERIALS */
+
+/* Fine paper grain, behind the guestbook text. */
+.room-story .seating-panel::before {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(107 80 42 / 2%) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(107 80 42 / 1.5%) 0 1px,
+      transparent 1px 6px
+    );
+}
+
+/* Gentle linen folds; preserve your existing weave texture. */
+.programme-linen {
+  box-shadow:
+    inset 12px 0 20px rgb(127 93 47 / 8%),
+    inset -12px 0 20px rgb(127 93 47 / 8%),
+    inset 0 5px 7px rgb(98 71 36 / 12%);
+}
+
+.programme-rail {
+  box-shadow:
+    inset 0 1px 0 #fff5da,
+    inset 0 -2px 2px rgb(94 65 26 / 25%),
+    0 4px 8px rgb(76 53 26 / 20%);
+}
+
+/* SEATING REVEAL */
+
+.room-story .invitation-reveal {
+  margin-top: 14px;
+  animation: inscription-appear 700ms ease both;
+}
+
+.room-story .table-result .guest-inscription {
+  margin: 7px 0;
+  color: #647653;
+  font: italic 26px / 1.2 Georgia, serif;
+  letter-spacing: -.5px;
+}
+
+.room-story .invitation-reveal strong {
+  font-size: 23px;
+}
+
+.guest-route-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trace-guest-route 1.6s ease .2s forwards;
+}
+
+.guest-route-arrival {
+  opacity: 0;
+  animation: route-arrival 500ms ease 1.7s forwards;
+}
+
+@keyframes inscription-appear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes trace-guest-route {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes route-arrival {
+  to { opacity: 1; }
+}
+
+/* SCHEDULE INTERACTION */
+
+.programme-moment-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  width: 100%;
+  padding: 3px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+
+  transition: color 250ms ease, border-color 250ms ease;
+}
+
+.programme-moment-button span {
+  color: #af9568;
+  font: 15px Arial, sans-serif;
+  transition: transform 250ms ease;
+}
+
+.programme-moment-button:hover span {
+  transform: translate(2px, -2px);
+}
+
+.programme-moment-button[aria-pressed="true"] {
+  color: #637551;
+  border-bottom-color: #b4b695;
+}
+
+.programme-moment-button:focus-visible {
+  outline: 2px solid #7f8d69;
+  outline-offset: 4px;
+}
+
+.programme-lighting-note {
+  max-width: 285px;
+  margin: 8px auto 0;
+  color: #8b795d;
+  font: 10px / 1.5 Arial, sans-serif;
+}
+
+/* Smooth changes affect scenery, not the readable programme. */
+.celebration-pavilion #pavilion-sky stop {
+  transition: stop-color 1800ms ease;
+}
+
+.celebration-pavilion > circle {
+  transition:
+    transform 1800ms ease,
+    fill 1800ms ease,
+    opacity 1800ms ease;
+}
+
+.celebration-pavilion {
+  transition: filter 1800ms ease;
+}
+
+/* Ceremony: a soft, brighter afternoon. */
+.room-garden[data-moment="ceremony"]
+  #pavilion-sky stop:nth-child(1) {
+  stop-color: #b9cfcd;
+}
+
+.room-garden[data-moment="ceremony"]
+  #pavilion-sky stop:nth-child(2) {
+  stop-color: #e8d9bc;
+}
+
+.room-garden[data-moment="ceremony"]
+  #pavilion-sky stop:nth-child(3) {
+  stop-color: #f5e7cd;
+}
+
+.room-garden[data-moment="ceremony"]
+  .celebration-pavilion > circle {
+  transform: translateY(-65px);
+  fill: #fff5d7;
+  opacity: .7;
+}
+
+/* Reception: the sun lowers and the coast warms. */
+.room-garden[data-moment="reception"]
+  #pavilion-sky stop:nth-child(1) {
+  stop-color: #929ba9;
+}
+
+.room-garden[data-moment="reception"]
+  #pavilion-sky stop:nth-child(2) {
+  stop-color: #daa394;
+}
+
+.room-garden[data-moment="reception"]
+  #pavilion-sky stop:nth-child(3) {
+  stop-color: #f0c28c;
+}
+
+.room-garden[data-moment="reception"]
+  .celebration-pavilion > circle {
+  transform: translateY(65px);
+  fill: #ffd49a;
+  opacity: .95;
+}
+
+.room-garden[data-moment="reception"] .celebration-pavilion {
+  filter: saturate(1.12);
+}
+
+/* Lanterns become warmer as the sun lowers. */
+.celebration-pavilion #pavilion-lantern-glow stop:first-child {
+  transition: stop-opacity 1800ms ease;
+}
+
+.room-garden[data-moment="ceremony"]
+  #pavilion-lantern-glow stop:first-child {
+  stop-opacity: .18;
+}
+
+.room-garden[data-moment="reception"]
+  #pavilion-lantern-glow stop:first-child {
+  stop-opacity: .7;
+}
+
+/* Preserve the destination when animation is disabled. */
+@media (prefers-reduced-motion: reduce) {
+  .guest-route-line {
+    stroke-dashoffset: 0;
+  }
+
+  .guest-route-arrival {
+    opacity: 1;
+  }
+
+  .invitation-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* THE WEDDING RINGS */
+
+.ring-interlude {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ring-atmosphere {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    rgb(36 29 20 / 8%) 12%,
+    rgb(36 29 20 / 36%) 65%,
+    rgb(36 29 20 / 55%)
+  );
+}
+
+.ring-caption {
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  right: 12%;
+  text-align: center;
+  color: #fff0d4;
+  text-shadow: 0 2px 18px #302417;
+}
+
+.ring-caption > span {
+  font: 9px Arial, sans-serif;
+  letter-spacing: 4px;
+}
+
+.ring-caption p {
+  margin-top: 13px;
+  font: italic clamp(23px, 3vw, 39px) / 1.2 Georgia, serif;
+}
+
+/* The positioning wrapper never gets scaled.
+   GSAP scales only the ring inside it. */
+.ring-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(180px, 32svh, 310px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.ring-portal {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+}
+
+.ring-portal svg,
+.ring-partner svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ring-partner {
+  position: absolute;
+  top: 59%;
+  left: 44%;
+  width: clamp(145px, 25svh, 245px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(-26deg);
+}
+
+.ring-cushion {
+  position: absolute;
+  left: 50%;
+  top: 66%;
+  width: clamp(250px, 38vw, 420px);
+  height: clamp(100px, 15svh, 150px);
+  transform: translate(-50%, -50%) rotate(-3deg);
+  border: 1px solid #e5d4b4;
+  border-radius: 38% 35% 32% 37% / 28% 32% 38% 40%;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(118 94 59 / 3%) 0 1px,
+      transparent 1px 4px
+    ),
+    radial-gradient(
+      ellipse at 50% 30%,
+      #fff8e7 10%,
+      #f0e3cb 58%,
+      #c7b394 100%
+    );
+
+  box-shadow:
+    inset 0 8px 18px rgb(255 253 240 / 65%),
+    inset 0 -15px 22px rgb(132 104 67 / 20%),
+    0 25px 35px rgb(42 31 19 / 28%);
+}
+
+.cushion-seam {
+  position: absolute;
+  inset: 9px;
+  border: 1px dashed rgb(168 141 99 / 45%);
+  border-radius: inherit;
+}
+
+.cushion-ribbon {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: 46%;
+  width: 10%;
+  background: linear-gradient(
+    90deg,
+    #dbcaab,
+    #fff4dc 45%,
+    #e3d2b4
+  );
+  opacity: .8;
+}
+
+/* Small visual echo beneath the couple's names. */
+.wedding-ring-emblem {
+  position: relative;
+  flex: 0 0 auto;
+  width: 84px;
+  height: 51px;
+  margin: 16px auto 8px;
+}
+
+.wedding-ring-emblem svg {
+  position: absolute;
+  top: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.wedding-ring-emblem svg:first-child {
+  left: 0;
+  transform: rotate(-18deg);
+}
+
+.wedding-ring-emblem svg:last-child {
+  right: 0;
+  transform: rotate(18deg);
+}
+
+.wedding-ring-emblem text {
+  display: none;
+}
+
+/* Add scroll distance for the new scene. */
+.church-journey {
+  height: 2800svh;
+}
+
+@media (max-width: 700px) {
+  .church-journey {
+    height: 2400svh;
+  }
+
+  .ring-caption {
+    top: 23%;
+  }
+
+  .ring-caption > span {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-height: 550px) {
+  .ring-caption {
+    top: 22%;
+  }
+
+  .ring-caption p {
+    font-size: 22px;
+    margin-top: 7px;
+  }
+}
+
+.reduced-journey {
+  height: auto;
+}
+
+.reduced-journey .ring-interlude {
+  display: none;
+}
+
+/* Keep each scene's artwork inside its own layer. */
+.room-art {
+  isolation: isolate;
+}
+
+.room-art > .living-scene,
+.room-art > .interior-detail-layer,
+.room-art > .venue-details {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Clip the enlarged ring at the viewport boundary. */
+.ring-interlude {
+  contain: paint;
+}
+
+/* Avoid forcing every invisible room into a retained layer. */
+.journey-room[aria-hidden="true"] .room-art {
+  will-change: auto;
+}
+
+/* SHORTER JOURNEY
+   Reduce scroll distance alongside the shortened timeline. */
+
+.church-journey {
+  height: 2500svh;
+}
+
+@media (max-width: 700px) {
+  .church-journey {
+    height: 2130svh;
+  }
+}
+
+.reduced-journey {
+  height: auto;
+}
+
+
+/* IDLE ANIMATION STATE */
+
+.arrival-scene {
+  --idle-state: paused;
+}
+
+.arrival-scene[aria-hidden="false"] {
+  --idle-state: running;
+}
+
+
+/* ARRIVAL — a small movement in the opening title */
+
+.arrival-copy h1 {
+  animation: invitation-drift 8s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+
+/* CHURCH — names float gently; details stay readable */
+
+.room-ceremony .journey-names {
+  animation: invitation-drift 9s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+.room-ceremony .gold-rule {
+  transform-origin: center;
+  animation: gold-rule-breathe 6s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+.wedding-ring-emblem .band-reflection {
+  animation: ring-reflection-idle 7s ease-in-out infinite;
+}
+
+
+/* SEATING — animate the ribbon, not the whole book */
+
+.room-story .seating-panel::after {
+  transform-origin: 50% 0;
+  animation: bookmark-sway 7s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+/* Soft ambient light around the salon sconces and lanterns. */
+.salon-light-breathe {
+  animation: warm-light-idle 6s ease-in-out infinite;
+}
+
+
+/* SCHEDULE — a passing highlight on the brass rail */
+
+.programme-rail::after {
+  content: "";
+  position: absolute;
+  inset: 1px 8%;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 249 221 / 75%),
+    transparent
+  );
+
+  transform-origin: center;
+  animation: brass-reflection-idle 8s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+
+/* BEACH — a small movement in the signature */
+
+.room-beach .beach-names {
+  animation: invitation-drift 10s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+
+/* EXISTING SCENERY — slightly more visible, slow motion */
+
+.flower-sway {
+  animation-name: flower-idle-refined;
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.linen-sway {
+  animation-name: linen-idle-refined;
+  animation-duration: 8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Your existing wave and palm animations remain in place. */
+
+
+/* KEYFRAMES */
+
+@keyframes invitation-drift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gold-rule-breathe {
+  0%, 100% {
+    opacity: .55;
+    transform: scaleY(.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes ring-reflection-idle {
+  0%, 100% {
+    opacity: .25;
+  }
+
+  50% {
+    opacity: .9;
+  }
+}
+
+@keyframes bookmark-sway {
+  0%, 100% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes warm-light-idle {
+  0%, 100% {
+    opacity: .55;
+  }
+
+  50% {
+    opacity: .95;
+  }
+}
+
+@keyframes brass-reflection-idle {
+  0%, 100% {
+    opacity: .15;
+    transform: scaleX(.55);
+  }
+
+  50% {
+    opacity: .65;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes flower-idle-refined {
+  from {
+    transform: rotate(-2deg);
+  }
+
+  to {
+    transform: rotate(2.5deg);
+  }
+}
+
+@keyframes linen-idle-refined {
+  from {
+    transform: skewX(-1.5deg);
+  }
+
+  to {
+    transform: skewX(2deg);
+  }
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .arrival-copy h1,
+  .room-ceremony .journey-names,
+  .room-ceremony .gold-rule,
+  .wedding-ring-emblem .band-reflection,
+  .room-story .seating-panel::after,
+  .salon-light-breathe,
+  .programme-rail::after,
+  .room-beach .beach-names,
+  .flower-sway,
+  .linen-sway {
+    animation: none !important;
+  }
+}
+
+/* CINEMATIC ENVELOPE INTRO */
+
+html {
+  scrollbar-gutter: stable;
+}
+
+.invitation-intro {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  color: #f4e8cf;
+}
+
+.invitation-intro::backdrop {
+  background: transparent;
+}
+
+.iv-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #20372e;
+}
+
+.iv-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 58%,
+    #7c8060 0%,
+    #405443 36%,
+    transparent 72%
+  );
+  opacity: 0;
+  animation: iv-light-arrives 1.4s .2s ease forwards;
+}
+
+.iv-skip {
+  position: absolute;
+  z-index: 20;
+  top: 20px;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  padding: 10px;
+  border: 0;
+  background: none;
+  color: #dbc9a6;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.iv-composition {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 6vh, 60px);
+  width: 100%;
+  height: 100%;
+  padding: 65px 24px 32px;
+}
+
+.iv-preface {
+  text-align: center;
+  pointer-events: none;
+}
+
+.iv-monogram {
+  color: #e1c28a;
+  font: 38px / 1 Georgia, serif;
+  letter-spacing: -2px;
+  animation: iv-preface-arrives .8s ease both;
+}
+
+.iv-monogram i {
+  margin: 0 3px;
+  font-size: 24px;
+}
+
+.iv-preface p {
+  margin-top: 16px;
+  color: #ddd8c1;
+  font: italic clamp(15px, 2.1vw, 21px) / 1.4 Georgia, serif;
+  animation: iv-preface-arrives .8s .2s ease both;
+}
+
+/* Separate wrappers keep entrance and opening transforms apart. */
+.iv-stage {
+  position: relative;
+  width: min(470px, 82vw, 66vh);
+  aspect-ratio: 1.65;
+  flex: 0 0 auto;
+  opacity: 0;
+  animation: iv-envelope-arrives 1.1s .35s
+    cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.iv-fabric {
+  position: absolute;
+  inset: -25% -18%;
+  border-radius: 40%;
+  transform: rotate(-12deg);
+  background:
+    linear-gradient(
+      112deg,
+      transparent 12%,
+      #b9b39633 25%,
+      #f5eadb66 30%,
+      #9d9a7b22 38%,
+      transparent 49%,
+      #e5d9bb44 65%,
+      transparent 80%
+    );
+  opacity: .7;
+}
+
+.iv-ribbon {
+  position: absolute;
+  z-index: 0;
+  left: -24%;
+  top: -18%;
+  width: 110%;
+  height: 140%;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+  animation: iv-ribbon-arrives 1.2s .6s ease forwards;
+}
+
+.iv-envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  isolation: isolate;
+}
+
+.iv-envelope-back {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #ccb28a;
+  border-radius: 4px;
+  background: #d8c4a3;
+  box-shadow: 0 25px 45px #10221955;
+}
+
+/* Warm paper; no full-screen SVG filters. */
+.iv-letter {
+  position: absolute;
+  z-index: 2;
+  inset: 4% 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15% 5% 5%;
+  border: 1px solid #c4a36d;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #8b704305 0 1px,
+      transparent 1px 4px
+    ),
+    linear-gradient(110deg, #fff8e9, #efdfc2);
+  color: #776144;
+  text-align: center;
+  box-shadow: inset 0 0 0 5px #f8ecd5;
+}
+
+.iv-letter-arch {
+  position: absolute;
+  inset: 8% 8% 4%;
+  width: 84%;
+  height: 88%;
+  color: #b69a68;
+  opacity: .7;
+  pointer-events: none;
+}
+
+.iv-letter-kicker {
+  font: 7px Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.iv-letter h2 {
+  margin: 10px 0;
+  font: 400 clamp(26px, 4.5vw, 43px) / 1 Georgia, serif;
+  letter-spacing: -1px;
+}
+
+.iv-letter h2 i {
+  color: #929c7e;
+}
+
+.iv-letter > p {
+  font: italic clamp(10px, 1.7vw, 13px) / 1.4 Georgia, serif;
+}
+
+.iv-letter-rule {
+  width: 25px;
+  height: 1px;
+  margin: 12px 0;
+  background: #c4a56e;
+}
+
+.iv-letter .iv-letter-date {
+  font: 9px / 1.6 Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.iv-letter-date span {
+  display: block;
+  font-size: 8px;
+}
+
+/* Opaque pocket conceals the letter before opening. */
+.iv-pocket {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: 4px;
+  background:
+    linear-gradient(32deg, #dfcbaa 49.7%, transparent 50%),
+    linear-gradient(-32deg, #f6e7cb 49.7%, transparent 50%),
+    #edddbf;
+  box-shadow: inset 0 -2px 0 #c9ae81;
+}
+
+.iv-address {
+  position: absolute;
+  z-index: 4;
+  left: 5%;
+  right: 5%;
+  bottom: 10%;
+  text-align: center;
+  color: #8c724d;
+}
+
+.iv-address p {
+  font: italic clamp(16px, 2.6vw, 24px) Georgia, serif;
+}
+
+.iv-address span {
+  display: block;
+  margin-top: 10px;
+  font: 7px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.iv-flap {
+  position: absolute;
+  z-index: 5;
+  inset: 0 0 auto;
+  height: 60%;
+  transform-origin: 50% 0;
+  backface-visibility: hidden;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(#fff1d6, #e2c89d);
+}
+
+/* The seal is the primary button. */
+.iv-seal {
+  position: absolute;
+  z-index: 6;
+  top: 42%;
+  left: calc(50% - 30px);
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  overflow: hidden;
+  border: 4px double #c8a064;
+  border-radius: 47% 53% 48% 52%;
+  color: #805c28;
+  background: radial-gradient(
+    circle at 32% 24%,
+    #f4dca4,
+    #c29a58 65%,
+    #a77c3f
+  );
+  box-shadow:
+    inset 0 1px 3px #fff2c9,
+    0 4px 8px #65441d44;
+  transition: box-shadow 180ms ease;
+}
+
+.iv-seal span {
+  position: relative;
+  z-index: 1;
+  font: italic 16px Georgia, serif;
+}
+
+.iv-seal::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    #fff8de99 48%,
+    transparent 59%
+  );
+  transform: translateX(-100%);
+  animation: iv-seal-glint 1s 1.25s ease forwards;
+}
+
+.iv-seal:hover {
+  box-shadow:
+    inset 0 1px 5px #fff7dc,
+    0 5px 12px #65441d66;
+}
+
+.iv-seal:focus-visible {
+  outline: 2px solid #fff1cc;
+  outline-offset: 6px;
+}
+
+.iv-instruction {
+  text-align: center;
+  animation: iv-preface-arrives .8s .75s ease both;
+}
+
+.iv-instruction button {
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 0;
+  background: transparent;
+  color: #efddba;
+  font: italic 18px Georgia, serif;
+}
+
+.iv-instruction p {
+  margin-top: 6px;
+  color: #bec7af;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.iv-seal:disabled,
+.iv-instruction button:disabled {
+  cursor: default;
+}
+
+/* The arch motif lands on the exterior's doorway. */
+.iv-door-guide {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.iv-door-board {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100vw, 150svh);
+  height: max(100svh, 66.6667vw);
+  transform: translate(-50%, -50%);
+}
+
+.iv-door-board svg {
+  position: absolute;
+  left: 42.05%;
+  top: 46.15%;
+  width: 15.85%;
+  height: 33.4%;
+}
+
+/* Opening immediately is allowed, even during the entrance. */
+.is-opening .iv-stage {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.is-opening .iv-seal {
+  animation: iv-seal-release .45s ease forwards;
+}
+
+.is-opening .iv-flap {
+  animation: iv-flap-open .7s .2s ease-in-out forwards;
+}
+
+.is-opening .iv-letter {
+  animation: iv-letter-reveal 1s .75s ease-in-out forwards;
+}
+
+.is-opening .iv-preface,
+.is-opening .iv-instruction {
+  animation: iv-fade-away .3s ease forwards;
+}
+
+.is-opening .iv-address {
+  animation: iv-fade-away .3s .5s ease forwards;
+}
+
+/* Hold the revealed card, then move gently closer. */
+.is-opening .iv-envelope {
+  animation: iv-envelope-approach 1.1s 2.55s ease-in forwards;
+}
+
+.is-opening .iv-fabric,
+.is-opening .iv-ribbon {
+  animation: iv-fade-away .7s 2.55s ease forwards;
+}
+
+.is-opening .iv-backdrop {
+  animation: iv-fade-away 1s 3.05s ease forwards;
+}
+
+.is-opening .iv-door-guide {
+  animation: iv-arch-handoff 1.4s 3s ease both;
+}
+
+/* Entrance */
+@keyframes iv-preface-arrives {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes iv-light-arrives {
+  to { opacity: .85; }
+}
+
+@keyframes iv-envelope-arrives {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes iv-ribbon-arrives {
+  from { opacity: 0; transform: translateY(14px) rotate(-6deg); }
+  to { opacity: .7; transform: translateY(0) rotate(0); }
+}
+
+@keyframes iv-seal-glint {
+  to { transform: translateX(100%); }
+}
+
+/* Opening */
+@keyframes iv-seal-release {
+  to {
+    transform: translate(12px, -18px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes iv-flap-open {
+  to { transform: rotateX(180deg); }
+}
+
+@keyframes iv-letter-reveal {
+  0% {
+    transform: translateY(0);
+    z-index: 2;
+  }
+  65% {
+    transform: translateY(-100%);
+    z-index: 2;
+  }
+  66% {
+    transform: translateY(-100%);
+    z-index: 7;
+  }
+  100% {
+    transform: translateY(-18%);
+    z-index: 7;
+  }
+}
+
+@keyframes iv-envelope-approach {
+  0% { opacity: 1; transform: scale(1); }
+  55% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+
+@keyframes iv-fade-away {
+  to { opacity: 0; }
+}
+
+@keyframes iv-arch-handoff {
+  0% { opacity: 0; }
+  45% { opacity: .8; }
+  100% { opacity: 0; }
+}
+
+.iv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-height: 620px) {
+  .iv-composition {
+    gap: 18px;
+    padding: 50px 15px 20px;
+  }
+
+  .iv-monogram {
+    font-size: 27px;
+  }
+
+  .iv-preface p {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .iv-stage {
+    width: min(330px, 72vw, 58vh);
+  }
+
+  .iv-letter {
+    padding-top: 10%;
+  }
+
+  .iv-letter h2 {
+    margin: 7px 0;
+    font-size: 25px;
+  }
+
+  .iv-letter-kicker {
+    font-size: 6px;
+    letter-spacing: .8px;
+  }
+
+  .iv-letter-rule {
+    margin: 6px 0;
+  }
+
+  .iv-seal {
+    width: 48px;
+    height: 48px;
+    left: calc(50% - 24px);
+  }
+
+  .iv-address span {
+    margin-top: 5px;
+    font-size: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-intro *,
+  .invitation-intro *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .iv-stage {
+    opacity: 1;
+  }
+
+  .iv-backdrop::after {
+    opacity: .85;
+  }
+
+  .iv-ribbon {
+    opacity: .7;
+  }
+}
+
+/* LIVE LETTER WRITING */
+
+.iv-letter .iv-written-heading {
+  flex: 0 0 auto;
+  width: 100%;
+  height: clamp(40px, 8vw, 62px);
+  margin: 6px 0;
+}
+
+.iv-written-names {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.iv-written-names path {
+  fill: none;
+  stroke: #977443;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.iv-written-names .iv-name-underline {
+  stroke: #baa06e;
+  stroke-width: 1.1;
+}
+
+/* Hide the letter's content until its writing sequence begins. */
+.iv-written-kicker,
+.iv-written-message,
+.iv-written-rule,
+.iv-written-date {
+  opacity: 0;
+}
+
+.iv-written-message {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* The card finishes rising at about 1.75 seconds. */
+.is-opening .iv-written-kicker {
+  animation: iv-ink-appear .45s 1.8s ease forwards;
+}
+
+.is-opening .iv-written-names path {
+  animation-name: iv-write-stroke;
+  animation-duration: .55s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  /* Each name stroke receives its delay from the component. */
+}
+
+.is-opening .iv-written-names .iv-name-underline {
+  animation-delay: 3.95s;
+  animation-duration: .65s;
+}
+
+.is-opening .iv-written-message {
+  animation: iv-write-message 1.15s 4.25s linear forwards;
+}
+
+.is-opening .iv-written-rule {
+  animation: iv-ink-appear .4s 5.25s ease forwards;
+}
+
+.is-opening .iv-written-date {
+  animation: iv-ink-appear .65s 5.4s ease forwards;
+}
+
+/* Keep the completed invitation visible before leaving. */
+.is-opening .iv-envelope {
+  animation:
+    iv-envelope-approach 1.1s 6.1s ease-in forwards;
+}
+
+.is-opening .iv-fabric,
+.is-opening .iv-ribbon {
+  animation: iv-fade-away .7s 6.1s ease forwards;
+}
+
+.is-opening .iv-backdrop {
+  animation: iv-fade-away 1s 6.55s ease forwards;
+}
+
+.is-opening .iv-door-guide {
+  animation: iv-arch-handoff 1.4s 6.5s ease both;
+}
+
+@keyframes iv-write-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes iv-ink-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes iv-write-message {
+  from {
+    opacity: 1;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iv-written-names path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+
+  .iv-written-kicker,
+  .iv-written-message,
+  .iv-written-rule,
+  .iv-written-date {
+    animation: none !important;
+    opacity: 1;
+    clip-path: none;
+  }
+}
+
+/* EXTERIOR TEXT: EDITORIAL REVEAL */
+
+.arrival-editorial[data-ready="false"] {
+  visibility: hidden;
+}
+
+/* Remove the previous floating-title animation.
+   Movement now belongs to the entrance and exit wrappers. */
+.arrival-editorial h1 {
+  animation: none;
+  transform: none;
+  overflow: visible;
+}
+
+.arrival-text-mask {
+  display: block;
+  overflow: hidden;
+  padding-block: .12em;
+}
+
+/* Explicit blocks give percentage transforms a predictable size. */
+.arrival-text-mask > span,
+.arrival-text-mask > span > span,
+.arrival-enter-always {
+  display: block;
+}
+
+.arrival-editorial h1 {
+  margin: 18px 0 24px;
+  line-height: 1.02;
+}
+
+.arrival-first-line {
+  margin-bottom: -.1em;
+}
+
+.arrival-second-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.arrival-of-mask,
+.arrival-always-group {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.arrival-of-mask {
+  margin-right: .12em;
+}
+
+.arrival-always-group {
+  position: relative;
+  padding-bottom: .08em;
+}
+
+.arrival-enter-always {
+  padding-right: .08em;
+  color: #f3d4aa;
+}
+
+/* A fine, slightly tapered stroke beneath "always." */
+.arrival-underline-track {
+  position: absolute;
+  left: 3%;
+  right: 5%;
+  bottom: .03em;
+  height: 2px;
+  transform-origin: right center;
+}
+
+.arrival-underline-ink {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: left center;
+
+  background: linear-gradient(
+    90deg,
+    #b4935b00,
+    #d5b477 12%,
+    #f5dfaa 65%,
+    #d5b47700
+  );
+}
+
+/* Only a narrow highlight moves during idle. */
+.arrival-underline-ink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #fff5d4,
+    transparent
+  );
+  transform: translateX(-110%);
+  animation: arrival-gold-glint 9s 2s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+.arrival-editorial .arrival-note {
+  max-width: 390px;
+  font: italic 17px / 1.6 Georgia, serif;
+  color: #f4e4c9;
+}
+
+@keyframes arrival-gold-glint {
+  0%, 65% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+
+  72% {
+    opacity: .9;
+  }
+
+  90%, 100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .arrival-editorial {
+    right: 7%;
+  }
+
+  .arrival-editorial h1 {
+    font-size: clamp(33px, 8.7vw, 52px);
+    letter-spacing: -1.5px;
+  }
+
+  .arrival-editorial .arrival-note {
+    max-width: 280px;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrival-underline-ink::after {
+    animation: none !important;
+  }
+}
+
+/* CHURCH ENTRANCE — HANGING WEDDING BANNERS */
+
+.exterior-board {
+  container-type: inline-size;
+}
+
+.entrance-stationery {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+.entrance-stationery[data-ready="true"] {
+  opacity: 1;
+}
+
+.entrance-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Attached to the artwork, so the camera carries us past them. */
+.church-banner {
+  position: absolute;
+  top: 23%;
+  width: 16%;
+  height: 43%;
+  color: #796346;
+}
+
+.banner-left {
+  left: 20%;
+}
+
+.banner-right {
+  right: 20%;
+}
+
+.banner-brass-rail {
+  position: absolute;
+  z-index: 2;
+  top: -.25cqw;
+  left: -5%;
+  width: 110%;
+  height: .45cqw;
+  border-radius: 1cqw;
+
+  background: linear-gradient(
+    #fae9b8,
+    #bc975b 55%,
+    #876331
+  );
+
+  box-shadow: 0 .2cqw .35cqw #3b291c33;
+}
+
+.banner-brass-rail::before,
+.banner-brass-rail::after {
+  content: "";
+  position: absolute;
+  top: -.17cqw;
+  width: .8cqw;
+  height: .8cqw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 25%,
+    #fff1c8,
+    #af8748 75%
+  );
+}
+
+.banner-brass-rail::before {
+  left: -.3cqw;
+}
+
+.banner-brass-rail::after {
+  right: -.3cqw;
+}
+
+.banner-cloth {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10% 5% 18%;
+  overflow: hidden;
+  text-align: center;
+  transform-origin: 50% 0;
+
+  /* A pointed fabric end instead of a rectangular panel. */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 88%,
+    50% 100%,
+    0 88%
+  );
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #81663d06 0 1px,
+      transparent 1px 4px
+    ),
+    linear-gradient(
+      90deg,
+      #d8c7a6,
+      #fff3da 13%,
+      #edddbf 48%,
+      #fff4dd 83%,
+      #cfb991
+    );
+
+  box-shadow:
+    inset .5cqw 0 1cqw #9c7c4720,
+    inset -.5cqw 0 1cqw #9c7c4720;
+
+  animation: entrance-cloth-sway 8s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+.banner-right .banner-cloth {
+  animation-delay: -3.5s;
+}
+
+.banner-cloth::before {
+  content: "";
+  position: absolute;
+  inset: 3% 6% 13%;
+  border: 1px solid #b2945b70;
+  border-top: 0;
+  pointer-events: none;
+}
+
+/* A narrow fold changes gently as the fabric moves. */
+.banner-cloth::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 25%,
+    #fff9e955 45%,
+    #90704110 52%,
+    transparent 68%
+  );
+
+  animation: entrance-fold-light 8s ease-in-out infinite;
+  animation-play-state: var(--idle-state, paused);
+}
+
+.banner-crest {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.8cqw;
+  height: 2.8cqw;
+  border: 1px solid #b49863;
+  border-radius: 50%;
+  color: #aa8c52;
+  font: italic 1.65cqw Georgia, serif;
+}
+
+.banner-fine-rule {
+  flex: 0 0 auto;
+  width: 18%;
+  height: 1px;
+  margin: 9% 0;
+  background: #c6aa75;
+}
+
+.banner-heading {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font: 400 2.35cqw / 1.15 Georgia, serif;
+  letter-spacing: -.08cqw;
+}
+
+.banner-heading em {
+  color: #879170;
+}
+
+.banner-branch {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 30%;
+  margin: 8% 0 5%;
+  fill: #9eaa8540;
+  stroke: #899776;
+  stroke-width: 1.2;
+}
+
+.banner-footnote {
+  flex: 0 0 auto;
+  color: #a48b60;
+  font: .52cqw / 1.5 Arial, sans-serif;
+  letter-spacing: .12cqw;
+}
+
+/* Small brass date plaque immediately above the doorway. */
+.entrance-date-plaque {
+  position: absolute;
+  left: 42.05%;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15.85%;
+  min-height: 4%;
+  padding: .45cqw;
+
+  border: 1px solid #e2c58a;
+  border-radius: .15cqw;
+  background: linear-gradient(
+    115deg,
+    #8a6c3d,
+    #d8bd84 45%,
+    #b18c51
+  );
+
+  color: #493b28;
+  box-shadow:
+    inset 0 1px 0 #f4dfad,
+    0 .25cqw .5cqw #33251955;
+
+  text-align: center;
+}
+
+.entrance-date-plaque > span {
+  font: .65cqw / 1.5 Arial, sans-serif;
+  letter-spacing: .1cqw;
+}
+
+.entrance-date-plaque small {
+  font: .45cqw / 1.6 Arial, sans-serif;
+  letter-spacing: .16cqw;
+}
+
+@keyframes entrance-cloth-sway {
+  0%, 100% {
+    transform: rotate(-.6deg) skewX(-.4deg);
+  }
+
+  50% {
+    transform: rotate(.7deg) skewX(.5deg);
+  }
+}
+
+@keyframes entrance-fold-light {
+  0%, 100% { opacity: .35; }
+  50% { opacity: .8; }
+}
+
+/* Bring both banners into the narrower mobile camera framing. */
+@media (max-width: 700px) {
+  .church-banner {
+    top: 26%;
+    width: 32vw;
+    height: 34%;
+  }
+
+  .banner-left {
+    left: calc(50% - 44vw);
+  }
+
+  .banner-right {
+    right: calc(50% - 44vw);
+  }
+
+  .banner-heading {
+    font-size: clamp(18px, 4.9vw, 30px);
+    letter-spacing: -.5px;
+  }
+
+  .banner-crest {
+    width: 27px;
+    height: 27px;
+    font-size: 18px;
+  }
+
+  .banner-footnote {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance-stationery {
+    transition: none;
+  }
+
+  .banner-cloth,
+  .banner-cloth::after {
+    animation: none !important;
+  }
+}
+
+/* BANNER ENTRANCE AND DEPARTURE */
+
+.entrance-stationery {
+  opacity: 1;
+  transition: none;
+}
+
+.entrance-stationery[data-ready="false"] {
+  visibility: hidden;
+}
+
+.entrance-stationery[data-ready="true"] {
+  visibility: visible;
+}
+
+.church-banner {
+  perspective: 1000px;
+}
+
+.banner-travel,
+.banner-unfurl,
+.banner-settle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-travel {
+  transform-origin: 50% 0;
+}
+
+.banner-settle {
+  transform-origin: 50% 0;
+}
+
+/* Extra space prevents the idle sway from clipping at the sides. */
+.banner-unfurl {
+  width: 110%;
+  margin-left: -5%;
+}
+
+.banner-settle {
+  width: 90.909%;
+  margin-inline: auto;
+}
+
+.banner-brass-rail {
+  transform-origin: center;
+}
+
+/* The vows remain steady once the two names have met. */
+.room-ceremony .vows-names {
+  animation: none;
+  white-space: nowrap;
+}
+
+.vows-names > span,
+.vows-names > i {
+  display: inline-block;
+  padding: .08em .055em .14em;
+}
+
+.vows-rings {
+  flex: 0 0 auto;
+}
+
+.room-ceremony .vows-rule {
+  animation: none;
+  background: transparent;
+}
+
+.vows-rule-ink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center top;
+  background: linear-gradient(#f5deb2, #b69561);
+}
+
+@media (max-width: 700px) {
+  .room-ceremony .vows-names {
+    font-size: clamp(34px, 10.5vw, 64px);
+    letter-spacing: -.035em;
+  }
+}
+
+/* The guestbook cover sits over the right page. */
+.seating-cover-stage {
+  position: absolute;
+  z-index: 4;
+  inset: 1px 1px 1px 50%;
+  perspective: 1100px;
+  perspective-origin: left center;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.seating-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(5px, 1.5vw, 14px);
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  border: 1px solid #b29b6a;
+  border-radius: 2px 18px 18px 2px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(248 237 212 / 4%) 0 1px,
+      transparent 1px 4px
+    ),
+    linear-gradient(100deg, #293e35, #526452 24%, #3b4f41);
+  box-shadow:
+    inset 6px 0 10px rgb(20 33 27 / 35%),
+    inset -2px 0 0 rgb(239 210 149 / 30%);
+  color: #f1d7a3;
+  text-align: center;
+}
+
+.seating-cover::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border: 1px solid rgb(229 201 143 / 63%);
+  border-radius: 2px 12px 12px 2px;
+}
+
+.seating-cover-monogram {
+  font: italic clamp(20px, 4vw, 50px) / 1 Georgia, serif;
+}
+
+.seating-cover-title {
+  font: 10px / 1.4 Arial, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.room-story .seating-panel::after {
+  z-index: 5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seating-cover-stage {
+    display: none;
+  }
+}
+
+.room-beach .room-copy .beach-finale-title {
+  margin: 12px 0 2px;
+  font-size: clamp(38px, min(9vw, 15svh), 108px);
+  line-height: 0.96;
+}
+
+.beach-finale-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.beach-finale-first,
+.beach-finale-last {
+  display: inline-block;
+  padding: 0.08em 0.12em 0.15em;
+}
+
+.beach-finale-foam {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(140px, 32vw, 320px);
+  height: 20px;
+  color: #fff0d3;
+  opacity: 0.85;
+}
+
+.beach-finale-foam-line {
+  /* GSAP draws this normalized path from 1 to 0. */
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+
+.room-beach .beach-names {
+  animation: none;
+}
+
+.beach-celebration-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.beach-sunset-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 58%,
+      rgb(255 166 108 / 12%),
+      transparent 58%
+    ),
+    linear-gradient(
+      #2f284b99,
+      #56416055 52%,
+      #3d2a3944
+    );
+}
+
+.beach-fireworks {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  width: min(100%, 1200px);
+  height: auto;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.beach-firework {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.room-beach .room-copy .beach-celebration-title {
+  margin: 0 0 12px;
+  padding-inline: 0.08em;
+  color: #fff4dc;
+  font-size: clamp(40px, min(12vw, 19svh), 156px);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  white-space: nowrap;
+  text-shadow: 0 5px 36px #39263788;
+}
+
+.room-beach .beach-celebration-title em {
+  color: #f4c37d;
+  font-size: 0.72em;
+}
+
+.beach-celebration-line {
+  margin: 3px 0 22px;
+  color: #ffe1bb;
+  font: italic clamp(17px, 3vw, 30px) / 1.3 Georgia, serif;
+}
+
+@media (max-width: 600px) {
+  .beach-fireworks {
+    top: 12%;
+  }
+}
+
+/* The inscription is anchored over the aisle. */
+.vows-inscription {
+  position: relative;
+  width: min(94%, 1150px);
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.room-ceremony .vows-inscription .vows-names {
+  margin: 0;
+  font-size: clamp(34px, min(12vw, 18svh), 156px);
+  letter-spacing: -0.065em;
+  color: #fff0d2;
+  text-shadow:
+    0 1px 0 #fff8e7,
+    0 3px 0 #765539,
+    0 10px 24px rgb(58 37 22 / 46%);
+}
+
+.vows-inscription .vows-ampersand {
+  color: #f1c078;
+  text-shadow: 0 2px 0 #856035, 0 5px 18px #50371c66;
+}
+
+.vows-inscription-light {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 26%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-115%) skewX(-14deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(232 151 91 / 10%) 30%,
+    rgb(255 216 147 / 28%) 55%,
+    rgb(211 136 136 / 12%) 72%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-ceremony [data-vows-revealed="false"] {
+    visibility: hidden;
+  }
+
+  .room-ceremony [data-vows-revealed="true"] .vows-names {
+    animation: vows-inscription-reveal 0.95s 0.12s ease-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-inscription-light {
+    animation: vows-amber-sweep 1.15s ease-in-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-ampersand {
+    animation: vows-gold-glint 0.55s 0.65s ease both;
+  }
+
+  [data-vows-revealed="true"] .vows-eyebrow {
+    animation: vows-details-appear 0.35s both;
+  }
+
+  [data-vows-revealed="true"] .vows-rings,
+  [data-vows-revealed="true"] .journey-hashtag {
+    animation: vows-details-appear 0.4s 0.78s both;
+  }
+
+  [data-vows-revealed="true"] .vows-rule,
+  [data-vows-revealed="true"] .vows-date,
+  [data-vows-revealed="true"] .vows-poem {
+    animation: vows-details-appear 0.42s 1.02s both;
+  }
+}
+
+@keyframes vows-inscription-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes vows-amber-sweep {
+  0% {
+    transform: translateX(-115%) skewX(-14deg);
+    opacity: 0;
+  }
+  35%, 65% { opacity: 1; }
+  100% {
+    transform: translateX(400%) skewX(-14deg);
+    opacity: 0;
+  }
+}
+
+@keyframes vows-gold-glint {
+  50% {
+    color: #ffe4ab;
+    text-shadow: 0 0 18px #ffd28a;
+  }
+}
+
+@keyframes vows-details-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Layer the stained-glass projection behind the inscription. */
+.room-ceremony .room-copy {
+  isolation: isolate;
+}
+
+.vows-light-show {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vows-altar-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 36%,
+    rgb(255 209 136 / 38%),
+    rgb(207 125 128 / 16%) 39%,
+    transparent 72%
+  );
+}
+
+.vows-rose-window {
+  position: absolute;
+  top: 3.5%;
+  left: 50%;
+  width: clamp(120px, 24svh, 250px);
+  height: auto;
+  transform: translateX(-50%);
+  opacity: .64;
+}
+
+.vows-window-ray {
+  position: absolute;
+  inset: 0;
+  opacity: .55;
+}
+
+.vows-window-ray-left {
+  clip-path: polygon(12% 15%, 18% 15%, 80% 100%, 41% 100%);
+  background: linear-gradient(
+    140deg,
+    rgb(255 202 125 / 64%),
+    rgb(230 137 126 / 22%) 60%,
+    transparent 87%
+  );
+}
+
+.vows-window-ray-right {
+  clip-path: polygon(82% 12%, 87% 12%, 61% 100%, 23% 100%);
+  background: linear-gradient(
+    220deg,
+    rgb(248 161 166 / 52%),
+    rgb(255 219 150 / 21%) 59%,
+    transparent 87%
+  );
+}
+
+.room-ceremony .vows-inscription .vows-names {
+  font-size: clamp(40px, min(13.5vw, 19svh), 168px);
+  color: #fff4dc;
+  text-shadow:
+    0 1px 0 #fffbee,
+    0 3px 0 #97704b,
+    0 6px 0 #50372c,
+    0 12px 28px rgb(49 27 20 / 56%);
+}
+
+.room-ceremony .vows-inscription .vows-ampersand {
+  color: #f5c27c;
+}
+
+.vows-petal {
+  position: absolute;
+  top: 14%;
+  width: 8px;
+  height: 13px;
+  border-radius: 75% 18% 75% 24%;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-vows-revealed="true"] .vows-altar-glow {
+    animation: vows-altar-lights-up 1.7s ease-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-rose-window {
+    animation: vows-rose-lights-up 1.35s ease-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-window-ray {
+    animation: vows-rays-arrive 1.45s .12s ease-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-petal {
+    animation-name: vows-petal-fall;
+    animation-duration: 2.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes vows-altar-lights-up {
+  0% { opacity: 0; }
+  48% { opacity: 1; }
+  100% { opacity: .68; }
+}
+
+@keyframes vows-rose-lights-up {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(.82);
+  }
+  58% { opacity: 1; }
+  100% {
+    opacity: .64;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes vows-rays-arrive {
+  0% { opacity: 0; }
+  43% { opacity: .82; }
+  100% { opacity: .55; }
+}
+
+@keyframes vows-petal-fall {
+  0% { opacity: 0; transform: translate(0, 0) rotate(-25deg); }
+  20% { opacity: .8; }
+  65% { opacity: .62; }
+  100% {
+    opacity: 0;
+    transform: translate(38px, 56svh) rotate(165deg);
+  }
+}
+
+/* The Vows — illuminated altar */
+.room-ceremony .room-copy {
+  isolation: isolate;
+}
+
+.vows-altar-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vows-nave-shade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 44%,
+    #211b252c 0%,
+    #211b25a8 52%,
+    #18131de8 100%
+  );
+}
+
+.vows-triptych {
+  position: absolute;
+  top: 7%;
+  bottom: 12%;
+  left: 50%;
+  width: min(72%, 1030px);
+  display: grid;
+  grid-template-columns: 1fr 1.18fr 1fr;
+  align-items: end;
+  gap: clamp(5px, 1vw, 14px);
+  transform: translateX(-50%);
+}
+
+.vows-lancet {
+  position: relative;
+  height: 81%;
+  overflow: hidden;
+  border: 1px solid #d1a26da8;
+  border-radius: 50% 50% 2px 2px / 26% 26% 2px 2px;
+  background: #201a23b8;
+  box-shadow: inset 0 0 0 5px #21192387;
+}
+
+.vows-lancet--amber {
+  --glass-top: #5c352b;
+  --glass-hue: #c67c43;
+}
+
+.vows-lancet--ivory {
+  --glass-top: #584046;
+  --glass-hue: #d1a571;
+  height: 100%;
+}
+
+.vows-lancet--rose {
+  --glass-top: #462b3e;
+  --glass-hue: #af596d;
+}
+
+.vows-glass {
+  position: absolute;
+  inset: 6px;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, transparent 49%, #281a2db0 49% 51%, transparent 51%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 35px,
+      #301f3166 35px 37px,
+      transparent 37px 72px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 35px,
+      #301f3166 35px 37px,
+      transparent 37px 72px
+    ),
+    linear-gradient(180deg, var(--glass-top), var(--glass-hue) 78%, #e8b476);
+  opacity: .78;
+}
+
+.vows-floor-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 87%,
+    #ffc68266,
+    #ce6e6322 32%,
+    transparent 63%
+  );
+}
+
+/* Leave the lettering readable across the glass. */
+.room-ceremony .vows-inscription {
+  width: min(100%, 1250px);
+}
+
+.room-ceremony .vows-inscription .vows-names {
+  font-size: clamp(38px, min(13.5vw, 20svh), 174px);
+  color: #fff2d5;
+  text-shadow:
+    0 2px 0 #66432b,
+    0 5px 0 #33212b,
+    0 10px 32px #170e1bc4;
+}
+
+.room-ceremony .vows-inscription .vows-ampersand {
+  color: #ffd18a;
+}
+
+.room-ceremony .room-copy .journey-hashtag {
+  font-size: clamp(20px, 4vw, 46px);
+  letter-spacing: -.035em;
+}
+
+@media (max-width: 700px) {
+  .vows-triptych {
+    top: 13%;
+    bottom: 15%;
+    width: 92%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-vows-revealed="true"] .vows-glass {
+    animation: vows-glass-ignite .85s .17s ease-out both;
+  }
+
+  [data-vows-revealed="true"] .vows-lancet--ivory .vows-glass {
+    animation-delay: 0s;
+  }
+
+  [data-vows-revealed="true"] .vows-lancet--rose .vows-glass {
+    animation-delay: .29s;
+  }
+
+  [data-vows-revealed="true"] .vows-floor-light {
+    animation: vows-floor-ignite 1s .24s ease-out both;
+  }
+
+  .room-ceremony [data-vows-revealed="true"] .vows-names {
+    animation: vows-title-emerge .68s .47s cubic-bezier(.18, .7, .22, 1) both;
+  }
+}
+
+@keyframes vows-glass-ignite {
+  from {
+    clip-path: inset(100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0);
+    opacity: .78;
+  }
+}
+
+@keyframes vows-floor-ignite {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes vows-title-emerge {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Warm light on the guestbook, with the salon visible at the edges. */
+.room-story .room-readability {
+  background: radial-gradient(
+    ellipse at 50% 56%,
+    rgb(250 210 144 / 17%),
+    transparent 45%,
+    rgb(12 30 24 / 42%) 100%
+  );
+}
+
+.room-story .seating-panel {
+  box-shadow:
+    0 3px 0 #d3bc91,
+    0 7px 0 #8a704b,
+    0 12px 0 #4e4230,
+    0 34px 56px rgb(9 24 18 / 62%),
+    inset 0 1px 0 #fffdf5;
+}
+
+.room-story .seating-cover-stage {
+  visibility: hidden;
+  perspective: 1350px;
+}
+
+.room-story .seating-cover {
+  overflow: hidden;
+  border-color: #b88d56;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(255 227 192 / 4%) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(25 9 15 / 6%) 0 1px,
+      transparent 1px 5px
+    ),
+    radial-gradient(ellipse at 66% 15%, #855359, transparent 72%),
+    linear-gradient(100deg, #39212b, #653842 25%, #4a2734);
+  color: #f1cf8f;
+}
+
+.room-story .seating-cover::before {
+  border: 3px double rgb(237 195 124 / 68%);
+}
+
+.seating-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 28%,
+    rgb(255 215 144 / 34%) 48%,
+    transparent 68%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.seating-cover-crest {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(78%, 210px);
+  aspect-ratio: 6 / 5;
+}
+
+.seating-cover-crest svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 1.25;
+}
+
+.seating-cover-crest .seating-cover-monogram {
+  font-size: clamp(13px, 2.5vw, 36px);
+  white-space: nowrap;
+  text-shadow: 0 2px 0 #43242e;
+}
+
+.room-story .seating-cover-title {
+  font-size: clamp(8px, 1vw, 12px);
+  letter-spacing: 0.2em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-story[data-seating-revealed="false"] .seating-cover-stage {
+    visibility: visible;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover-stage {
+    animation: seating-release-cover 1.4s steps(1, end) both;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover {
+    animation: seating-turn-cover 0.9s 0.5s
+      cubic-bezier(.45, .06, .2, 1) both;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover::after {
+    animation: seating-foil-glint 0.75s 0.06s ease-out both;
+  }
+}
+
+@keyframes seating-release-cover {
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}
+
+@keyframes seating-turn-cover {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-94deg); }
+}
+
+@keyframes seating-foil-glint {
+  to { transform: translateX(100%); }
+}
+
+/* Celebration programme — linen and gold thread */
+.room-garden .programme-timeline::before {
+  transform-origin: top center;
+  background: linear-gradient(#e3c780, #ac8144);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-garden[data-programme-revealed="false"] .programme-linen {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 50% 0, 0 0);
+  }
+
+  .room-garden[data-programme-revealed="true"] .programme-linen {
+    animation: programme-linen-drop 1.08s
+      cubic-bezier(.24, .72, .24, 1) both;
+  }
+
+  .room-garden[data-programme-revealed="true"] .programme-timeline::before {
+    animation: programme-gold-thread .85s .54s ease-out both;
+  }
+
+  .room-garden[data-programme-revealed="true"]
+    .programme-timeline > li:nth-child(1) .programme-marker {
+    animation: programme-medallion-light .62s .75s ease-out both;
+  }
+
+  .room-garden[data-programme-revealed="true"]
+    .programme-timeline > li:nth-child(2) .programme-marker {
+    animation: programme-medallion-light .62s 1.1s ease-out both;
+  }
+}
+
+@keyframes programme-linen-drop {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 50% 0, 0 0);
+  }
+
+  82% {
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 95%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 50% 100%, 0 94%);
+  }
+}
+
+@keyframes programme-gold-thread {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes programme-medallion-light {
+  45% {
+    color: #694617;
+    background-color: #ffe2a0;
+    box-shadow: 0 0 16px #dda65080, inset 0 0 0 3px #fff0c6;
+  }
+}
+
+.journey-header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 22px);
+}
+
+.journey-header-actions .header-action {
+  white-space: nowrap;
+}
+
+.wedding-music {
+  position: relative;
+}
+
+.journey-header .wedding-music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgb(255 233 195 / 55%);
+  border-radius: 999px;
+  background: rgb(42 32 23 / 45%);
+  color: #fff0d4;
+  font: 11px Georgia, serif;
+  white-space: nowrap;
+}
+
+.journey-header .wedding-music-toggle[aria-pressed="true"] {
+  background: #edcd94;
+  color: #392b1c;
+  text-shadow: none;
+}
+
+.wedding-music-toggle > span:first-child {
+  font-size: 16px;
+}
+
+.wedding-music-message {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 155px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  background: #30241e;
+  color: #fff0d4;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .journey-header .wedding-music-toggle {
+    min-width: 44px;
+    padding: 0 8px;
+  }
+
+  .wedding-music-toggle > span:last-child {
+    display: none;
+  }
+}
+
+.room-beach .beach-sunset-wash {
+  background:
+    radial-gradient(ellipse at 50% 66%, #ffc38d30, transparent 56%),
+    linear-gradient(180deg, #27203caa, #7c4b6355 48%, #33283855);
+}
+
+.beach-finale-divider {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  color: #f1ca8c;
+}
+
+.beach-finale-divider span {
+  width: clamp(28px, 6vw, 68px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.beach-finale-divider span:last-child {
+  transform: scaleX(-1);
+}
+
+.beach-finale-divider i {
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.beach-water-reflection {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  width: min(52%, 440px);
+  transform: translateX(-50%);
+  opacity: .6;
+}
+
+.beach-water-reflection span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, #ffe0ac88, transparent);
+}
+
+.beach-water-reflection span:nth-child(2) { width: 74%; }
+.beach-water-reflection span:nth-child(3) { width: 48%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-beach[data-beach-revealed="false"] .room-copy,
+  .room-beach[data-beach-revealed="false"] .beach-sunset-wash,
+  .room-beach[data-beach-revealed="false"] .beach-water-reflection {
+    visibility: hidden;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-sunset-wash {
+    animation: beach-evening-arrives 1.65s ease-out both;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-firework {
+    animation: beach-gold-burst 1.65s .12s ease-out both;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    .beach-fireworks > g:nth-child(2) .beach-firework {
+    animation-delay: .45s;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    .beach-fireworks > g:nth-child(3) .beach-firework {
+    animation-delay: .77s;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-celebration-title {
+    animation: beach-finale-arrive .9s .4s cubic-bezier(.16, 1, .3, 1) both;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    :is(.beach-finale-eyebrow, .beach-celebration-line) {
+    animation: beach-finale-arrive .65s .82s ease-out both;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    :is(.beach-finale-divider, .room-date, .save-date-button, .venue-note) {
+    animation: beach-finale-arrive .65s 1.12s ease-out both;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-water-reflection span {
+    animation: beach-water-shimmer 5s ease-in-out infinite alternate;
+    animation-play-state: var(--idle-state, paused);
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-water-reflection span:nth-child(2) {
+    animation-delay: -2s;
+  }
+}
+
+@keyframes beach-evening-arrives {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes beach-gold-burst {
+  0% { opacity: 0; transform: scale(.12); }
+  18% { opacity: 1; }
+  48% { opacity: .85; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.22); }
+}
+
+@keyframes beach-finale-arrive {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes beach-water-shimmer {
+  from { opacity: .3; transform: translateX(-5px) scaleX(.8); }
+  to { opacity: .85; transform: translateX(5px) scaleX(1); }
+}
+
+/* The last scene holds on a deep sky and a warm horizon. */
+.room-beach .beach-sunset-wash {
+  background:
+    radial-gradient(ellipse at 50% 54%, #f6a36d52, transparent 53%),
+    linear-gradient(180deg, #1b183deb, #58314c91 52%, #201c36a8);
+}
+
+.room-beach .beach-fireworks {
+  top: 0;
+  width: min(100%, 1600px);
+}
+
+.beach-sky-burst {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.beach-firework-trail {
+  opacity: 0;
+  stroke-dasharray: 0.23 1;
+  stroke-dashoffset: 0.23;
+}
+
+.room-beach .room-copy .beach-celebration-title {
+  width: 100%;
+  margin: 4px 0 14px;
+  font-size: clamp(34px, min(15vw, 20svh), 208px);
+  line-height: 1;
+  letter-spacing: -0.075em;
+  color: #fff2d7;
+  text-shadow: 0 4px 0 #55333b, 0 14px 35px #24182ccc;
+}
+
+.room-beach .room-copy .beach-celebration-title em {
+  color: #ffd495;
+  text-shadow: 0 3px 0 #6b4132, 0 0 24px #ffc48460;
+}
+
+.room-beach .beach-celebration-line {
+  color: #ffe8cb;
+  font-size: clamp(19px, 3.3vw, 42px);
+  margin-bottom: 20px;
+}
+
+.room-beach .beach-water-reflection {
+  top: 59%;
+  width: min(72%, 740px);
+  gap: 9px;
+  opacity: .9;
+}
+
+.room-beach .beach-water-reflection span {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffd89cbb, transparent);
+}
+
+@media (max-width: 600px) {
+  .room-beach .beach-fireworks {
+    top: 8%;
+  }
+
+  .room-beach .room-copy .beach-celebration-title {
+    font-size: clamp(34px, 15vw, 86px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-beach[data-beach-revealed="true"] .beach-firework-trail {
+    animation: beach-rocket-rise .36s linear both;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-sky-burst {
+    animation: beach-finale-burst 1.9s ease-out both;
+  }
+
+  .room-beach[data-beach-revealed="true"] .beach-celebration-title {
+    animation: beach-finale-title-settle 1s 1s
+      cubic-bezier(.16, 1, .3, 1) both;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    :is(.beach-finale-eyebrow, .beach-celebration-line) {
+    animation-delay: 1.3s;
+  }
+
+  .room-beach[data-beach-revealed="true"]
+    :is(.beach-finale-divider, .room-date, .save-date-button, .venue-note) {
+    animation-delay: 1.65s;
+  }
+}
+
+@keyframes beach-rocket-rise {
+  0% { opacity: 0; stroke-dashoffset: 0.23; }
+  20% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; stroke-dashoffset: -0.99; }
+}
+
+@keyframes beach-finale-burst {
+  0% { opacity: 0; transform: scale(.1); }
+  18% { opacity: 1; transform: scale(.73); }
+  44% { opacity: .85; transform: scale(1); }
+  78% { opacity: .35; }
+  100% { opacity: 0; transform: scale(1.17); }
+}
+
+@keyframes beach-finale-title-settle {
+  from { opacity: 0; transform: translateY(18px) scale(.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pavilion-entrance-flare {
+  opacity: 0;
+}
+
+.room-garden .wedding-programme {
+  width: min(520px, 100%);
+}
+
+/* A warm pool of light behind the hanging linen. */
+.room-garden .room-readability::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 53%,
+    rgb(255 202 130 / 22%) 0%,
+    transparent 47%,
+    rgb(32 28 37 / 27%) 100%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-garden[data-programme-revealed="false"] .wedding-programme {
+    visibility: hidden;
+  }
+
+  .room-garden[data-programme-revealed="false"] .room-readability::before {
+    opacity: 0;
+  }
+
+  .room-garden[data-programme-revealed="true"] .pavilion-entrance-flare {
+    animation: pavilion-light-the-lantern .9s ease-out both;
+  }
+
+  .room-garden[data-programme-revealed="true"] .room-readability::before {
+    animation: pavilion-light-the-terrace 1s .15s ease-out both;
+  }
+
+  /* Individual translate keeps this separate from GSAP's exit transform. */
+  .room-garden[data-programme-revealed="true"] .wedding-programme {
+    animation: pavilion-lower-rail .78s .3s
+      cubic-bezier(.2, .72, .24, 1) both;
+  }
+
+  .room-garden[data-programme-revealed="true"]
+    :is(.programme-cord, .programme-rail) {
+    animation: pavilion-rail-appears .4s .32s ease-out both;
+  }
+
+  .room-garden[data-programme-revealed="true"] .programme-linen {
+    animation: programme-linen-drop .85s .55s
+      cubic-bezier(.24, .72, .24, 1) both;
+  }
+
+  .room-garden[data-programme-revealed="true"] .programme-timeline::before {
+    animation-delay: .98s;
+  }
+
+  .room-garden[data-programme-revealed="true"]
+    .programme-timeline > li:nth-child(1) .programme-marker {
+    animation-delay: 1.15s;
+  }
+
+  .room-garden[data-programme-revealed="true"]
+    .programme-timeline > li:nth-child(2) .programme-marker {
+    animation-delay: 1.45s;
+  }
+}
+
+@keyframes pavilion-light-the-lantern {
+  0% { opacity: 0; }
+  42% { opacity: .95; }
+  100% { opacity: .18; }
+}
+
+@keyframes pavilion-light-the-terrace {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pavilion-lower-rail {
+  0% { translate: 0 -52px; }
+  82% { translate: 0 3px; }
+  100% { translate: 0 0; }
+}
+
+@keyframes pavilion-rail-appears {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* YOUR PLACE — the salon and the open folio */
+
+.room-story .room-readability {
+  background:
+    radial-gradient(
+      ellipse at 50% 61%,
+      rgb(244 194 114 / 22%),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 50% 55%,
+      transparent 32%,
+      rgb(10 24 19 / 55%) 100%
+    );
+}
+
+.room-story .seating-panel {
+  width: min(1120px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(34px, 6vw, 92px);
+  padding: clamp(28px, 3.7vw, 58px);
+
+  border: 1px solid #ccab76;
+  border-radius: 12px 26px 26px 12px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 46%,
+      #6e462910 48.5%,
+      #75492540 49.7%,
+      #fff7dfb0 50.4%,
+      transparent 53.5%
+    ),
+    radial-gradient(ellipse at 22% 10%, #fffaf0, transparent 66%),
+    linear-gradient(105deg, #f2e2c6, #fff4de 57%, #ebd4ae);
+  box-shadow:
+    0 4px 0 #d6bc92,
+    0 8px 0 #a5835d,
+    0 13px 0 #482832,
+    0 28px 54px #10221bd0;
+}
+
+.room-story .seating-panel::before {
+  inset: 13px;
+  border: 3px double #b08e5780;
+  border-radius: inherit;
+}
+
+.room-story .seating-panel::after {
+  z-index: 3;
+}
+
+.room-story .seating-form {
+  min-width: 0;
+}
+
+.room-story .seating-form h3 {
+  margin: 14px 0;
+  color: #493229;
+  font-size: clamp(29px, 4.1vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.room-story .seating-form h3 em {
+  color: #536b50;
+}
+
+.room-story .seating-form > p {
+  color: #6a553d;
+  font-size: clamp(13px, 1.35vw, 17px);
+  line-height: 1.55;
+}
+
+.room-story .seating-form label,
+.room-story .preview-badge {
+  color: #765e3f;
+  font-size: 9px;
+}
+
+.room-story .invitation-input-row input {
+  color: #3e5140;
+  font-size: clamp(17px, 2.2vw, 27px);
+}
+
+.room-story .invitation-input-row input::placeholder {
+  color: #80694f;
+}
+
+.room-story .invitation-input-row button {
+  border-color: #cd9c7e;
+  background: radial-gradient(circle at 34% 26%, #a9656e, #66323f 72%);
+  color: #fff0cd;
+}
+
+.room-story .seating-map {
+  max-width: 365px;
+}
+
+.room-story .seating-map svg {
+  height: clamp(230px, 31svh, 365px);
+}
+
+.room-story .seating-map::before {
+  margin-bottom: 8px;
+  color: #755b36;
+  font-size: 9px;
+}
+
+.room-story .seating-map figcaption {
+  color: #715c40;
+  font-size: clamp(11px, 1.15vw, 15px);
+}
+
+/* The closed cover fills the entire spread. */
+.room-story .seating-cover-stage {
+  inset: -1px;
+  z-index: 6;
+  perspective: 2000px;
+  perspective-origin: left center;
+}
+
+.room-story .seating-cover {
+  border: 1px solid #c99d60;
+  border-radius: 12px 26px 26px 12px;
+  background:
+    repeating-linear-gradient(0deg, #ffe7c409 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 63% 22%, #93576180, transparent 62%),
+    linear-gradient(110deg, #301c25, #6b3646 26%, #492633 84%);
+  box-shadow:
+    inset 11px 0 16px #2b1427a8,
+    inset -2px 0 0 #e0b47b50;
+  color: #f6d598;
+}
+
+.room-story .seating-cover::before {
+  inset: 5%;
+  border: 4px double #e7bc728c;
+  border-radius: 7px 19px 19px 7px;
+}
+
+.room-story .seating-cover-crest {
+  width: min(48%, 250px);
+}
+
+.room-story .seating-cover-monogram {
+  font-size: clamp(20px, 3.6vw, 48px);
+}
+
+.room-story .seating-cover-title {
+  font: italic clamp(22px, 3vw, 42px) / 1 Georgia, serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.seating-cover-date {
+  font: 9px / 1.4 Arial, sans-serif;
+  letter-spacing: .18em;
+  color: #ebc796;
+}
+
+@media (max-width: 700px) {
+  .room-story .seating-panel {
+    padding: 23px 16px;
+    gap: 17px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  }
+
+  .room-story .seating-form h3 {
+    font-size: clamp(20px, 6vw, 34px);
+  }
+
+  .room-story .seating-form > p,
+  .room-story .seating-map figcaption {
+    font-size: 11px;
+  }
+
+  .room-story .seating-map svg {
+    height: auto;
+    max-height: 225px;
+  }
+
+  .room-story .seating-form label,
+  .room-story .preview-badge,
+  .room-story .seating-map::before {
+    font-size: 7px;
+    letter-spacing: .1em;
+  }
+}
+
+/* Light gathers, the foil catches it, then the cover opens. */
+@media (prefers-reduced-motion: no-preference) {
+  .room-story[data-seating-revealed="true"] .room-readability {
+    animation: seating-salon-lights 1.2s ease-out both;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover-stage {
+    animation: seating-release-cover 1.8s steps(1, end) both;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover {
+    animation: seating-grand-open 1.15s .65s
+      cubic-bezier(.42, 0, .22, 1) both;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-cover::after {
+    animation: seating-foil-glint .85s .08s ease-out both;
+  }
+}
+
+@keyframes seating-salon-lights {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+@keyframes seating-grand-open {
+  0% { transform: rotateY(0deg); opacity: 1; }
+  84% { opacity: 1; }
+  100% { transform: rotateY(-89deg); opacity: 0; }
+}
+
+/* Give the floor plan more of the right page. */
+.room-story .seating-panel {
+  width: min(1200px, 100%);
+  padding-inline: clamp(30px, 4vw, 62px);
+  column-gap: clamp(30px, 5vw, 76px);
+}
+
+.room-story .seating-salon-plan {
+  width: 100%;
+  max-width: 510px;
+}
+
+.room-story .seating-salon-plan::before {
+  content: none;
+}
+
+.seating-plan-heading {
+  margin-bottom: 12px;
+  color: #54402b;
+  font: italic clamp(16px, 2.3vw, 31px) / 1.1 Georgia, serif;
+  text-align: center;
+}
+
+.room-story .seating-salon-plan svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 39svh;
+}
+
+.seating-plan-number {
+  font: 600 18px Georgia, serif;
+}
+
+.seating-plan-couple,
+.seating-plan-entry {
+  font: 600 8px Arial, sans-serif;
+  letter-spacing: 1.1px;
+}
+
+.seating-plan-couple { fill: #fff1ce; }
+.seating-plan-entry { fill: #76562e; }
+
+/* Spare leaves turn above the spread and below the hard cover. */
+.seating-riffle {
+  position: absolute;
+  z-index: 5;
+  inset: 2px 2px 2px 50%;
+  perspective: 1200px;
+  perspective-origin: left center;
+  pointer-events: none;
+}
+
+.seating-turning-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  border: 1px solid #b99258;
+  border-radius: 0 22px 22px 0;
+  background:
+    linear-gradient(90deg, #c6a677 0%, #f5e7cb 9%, #fff3d8 88%, #dbc08e);
+  box-shadow: inset -4px 0 #b98b49;
+  color: #7c5a36;
+  font: italic clamp(13px, 2vw, 29px) Georgia, serif;
+}
+
+.seating-turning-page::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border: 1px solid #b9925870;
+  border-radius: inherit;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .room-story[data-seating-revealed="true"] .seating-turning-page {
+    animation: seating-riffle-turn .56s ease-in-out forwards;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-turning-page:nth-child(1) {
+    z-index: 3;
+    animation-delay: 1.32s;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-turning-page:nth-child(2) {
+    z-index: 2;
+    animation-delay: 1.54s;
+  }
+
+  .room-story[data-seating-revealed="true"] .seating-turning-page:nth-child(3) {
+    z-index: 1;
+    animation-delay: 1.76s;
+  }
+}
+
+@keyframes seating-riffle-turn {
+  0% { visibility: visible; transform: rotateY(0deg); }
+  100% { visibility: hidden; transform: rotateY(-105deg); }
+}
+
+@media (max-width: 700px) {
+  .room-story .seating-panel {
+    padding-inline: 16px;
+    column-gap: 14px;
+  }
+
+  .room-story .seating-salon-plan svg {
+    max-height: 29svh;
+  }
+}
+
+/* Display stand, page edges and engraved plan */
+.room-story .seating-display {
+  display: grid;
+  justify-items: center;
+  width: min(1340px, 100%);
+  padding-bottom: 12px;
+}
+
+.room-story .seating-display .seating-panel {
+  width: 100%;
+  z-index: 1;
+  box-shadow:
+    0 3px 0 #e3c994,
+    0 6px 0 #b79462,
+    0 10px 0 #673646,
+    0 13px 0 #3b202a,
+    0 19px 28px #14251c70;
+}
+
+.seating-display-stand {
+  width: 91%;
+  height: 32px;
+  margin-top: 8px;
+  border-radius: 2px 2px 14px 14px;
+  background:
+    linear-gradient(#f3d294, #ae8247) 0 0 / 100% 5px no-repeat,
+    repeating-linear-gradient(
+      90deg,
+      #183129 0 9px,
+      #2e4b3c 10px 12px,
+      #203b30 13px 21px
+    );
+  border-bottom: 2px solid #bd955a;
+  box-shadow: 0 15px 24px #11231d88;
+}
+
+.room-story .seating-salon-plan {
+  max-width: 570px;
+}
+
+.room-story .seating-plan-heading {
+  color: #3e3024;
+  font-size: clamp(20px, 2.5vw, 37px);
+}
+
+.room-story .seating-salon-plan svg {
+  max-height: 42svh;
+}
+
+.room-story .seating-salon-plan svg > rect.seating-engraved-aisle {
+  fill: #57725a;
+  fill-opacity: 1;
+  stroke: #a78a53;
+  stroke-width: .8;
+}
+
+.room-story .seating-salon-plan svg > rect.seating-engraved-head-table {
+  fill: #c69b59;
+  fill-opacity: 1;
+  stroke: #f1d39a;
+  stroke-width: 1;
+}
+
+.room-story .seating-plan-couple {
+  fill: #2b2117;
+}
+
+.seating-salon-plan .seating-table > circle:first-of-type {
+  fill: #2d493a;
+  stroke: #d1aa6a;
+  stroke-width: 1.5;
+}
+
+.seating-salon-plan .seating-table > circle:last-of-type {
+  stroke: #d1aa6a80;
+}
+
+.seating-salon-plan .seating-table > text {
+  fill: #ffedc1;
+}
+
+.seating-salon-plan .seating-table-selected > circle:first-of-type {
+  fill: #e8c782;
+  stroke: #ffedbf;
+  stroke-width: 2;
+}
+
+.seating-salon-plan .seating-table-selected > circle:last-of-type {
+  stroke: #866338;
+}
+
+.seating-salon-plan .seating-table-selected > text {
+  fill: #342719;
+}
+
+/* Settle the open folio onto the stand when the salon appears. */
+@media (prefers-reduced-motion: no-preference) {
+  .room-story[data-seating-revealed="true"] .seating-display {
+    animation: seating-display-settle .72s
+      cubic-bezier(.18, .72, .24, 1) both;
+  }
+}
+
+@keyframes seating-display-settle {
+  from { translate: 0 -16px; }
+  to { translate: 0 0; }
+}
+
+@media (max-width: 700px) {
+  .room-story .seating-plan-heading {
+    font-size: clamp(15px, 4vw, 22px);
+  }
+
+  .room-story .seating-salon-plan svg {
+    max-height: 29svh;
+  }
+
+  .seating-display-stand {
+    height: 19px;
+  }
+}
